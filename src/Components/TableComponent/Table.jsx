@@ -2,10 +2,10 @@ import React from "react";
 import TableRow from "./TableRow";
 export default function Table({ rooms }) {
   return (
-    <div className="">
+    <div className="" style ={style.table}>
       <h2 className="text-center">ROOM DETAILS</h2>
-      <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
+      <div className="card-body">
+        <table id="example1" className="table table-bordered table-striped">
           <thead>
             <tr>
               <th>ROOM NO</th>
@@ -40,16 +40,27 @@ export default function Table({ rooms }) {
         </table>
         <div className="text-right mt-3">
           <span className="mr-3 font-weight-bold">LEGEND</span>
-          <span class="badge badge-pill badge-success mr-3">GOOD</span>
+          <span className="badge badge-pill badge-success mr-3">GOOD</span>
           <span
-            class="badge badge-pill mr-3"
+            className="badge badge-pill mr-3"
             style={{ backgroundColor: "#FFCCCB" }}
           >
             MILD
           </span>
-          <span class="badge badge-pill badge-danger mr-3">BAD</span>
+          <span className="badge badge-pill badge-danger mr-3">BAD</span>
         </div>
       </div>
     </div>
   );
 }
+
+const style = {
+  table: {
+    marginTop: "3%",
+    borderTop: '5px solid darkgray',
+    borderBottom: '5px solid darkgray',
+    borderRadius:'5px',
+    padding:'45px'
+  }
+
+};
