@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./Components/NavComponent/navcomponent";
 import Cardlist from "./Components/CardComponent/CardListComponent";
@@ -39,8 +40,23 @@ class App extends Component {
         smokeLevel: "1",
         co2Level: "5",
       },
-    ],
+    ]
   };
+  
+  //test code
+
+  // fetchUsers = async function name() {
+  //   try{
+  //     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+  //     console.log(response.data)
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+  // componentDidMount(){
+  //   this.fetchUsers()
+  // }
 
   render() {
     return (
@@ -49,10 +65,18 @@ class App extends Component {
           <NavBar />
           <div className="container">
             <div className="cardList">
-              <Route exact path="/" component={() => <Cardlist rooms = {this.state.rooms}/>} />
+              <Route
+                exact
+                path="/"
+                component={() => <Cardlist rooms={this.state.rooms} />}
+              />
             </div>
             <div className="tableContainer">
-              <Route exact path="/" component={() => <Table rooms = {this.state.rooms}/>} />
+              <Route
+                exact
+                path="/"
+                component={() => <Table rooms={this.state.rooms} />}
+              />
             </div>
 
             <div className="chartcontainer">
