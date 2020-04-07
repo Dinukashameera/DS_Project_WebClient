@@ -31,7 +31,7 @@ export default function TableRow({ room, floor, status, smoke, co2 }) {
     <tr>
       <td className = "font-weight-bold">{room}</td>
       <td className = "font-weight-bold">{floor}</td>
-      <td className = "font-weight-bold" style={{ color: alarmStatus ? "green" : "red" }} >{alarmStatus}</td>
+      <td className = "font-weight-bold" style={{ color: status ? "green" : "red" }} >{alarmStatus}</td>
       <td className = "font-weight-bold" style={{ backgroundColor: `${smokeLevel}` }}>{smoke}</td>
       <td className = "font-weight-bold" style={{ backgroundColor: `${co2Level}` }}>{co2}</td>
     </tr>
