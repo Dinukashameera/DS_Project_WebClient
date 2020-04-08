@@ -19,10 +19,12 @@ const roomSchema = new mongoose.Schema({
       default : false 
   },
   smokeLevel :{
-    type : number
+    type : Number,
+    default : 0
   },
   co2Level : {
-      type : Number
+      type : Number,
+      default : 0
   }
 });
 
