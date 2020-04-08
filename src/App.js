@@ -12,51 +12,28 @@ import "./App.css";
 class App extends Component {
   state = {
     rooms: [
-      {
-        roomNo: "1",
-        floorNo: "1",
-        alarmStatus: false,
-        smokeLevel: "5",
-        co2Level: "3",
-      },
-      {
-        roomNo: "2",
-        floorNo: "1",
-        alarmStatus: true,
-        smokeLevel: "8",
-        co2Level: "3",
-      },
-      {
-        roomNo: "3",
-        floorNo: "1",
-        alarmStatus: false,
-        smokeLevel: "9",
-        co2Level: "6",
-      },
-      {
-        roomNo: "4",
-        floorNo: "1",
-        alarmStatus: true,
-        smokeLevel: "1",
-        co2Level: "5",
-      },
+      
     ]
   };
   
-  //test code
 
-  // fetchUsers = async function name() {
-  //   try{
-  //     const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-  //     console.log(response.data)
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
+  autoFetch = () =>{
+    axios.get(`/api/room`)
+    .then(res => {
+      const rooms =  res.data;
+      this.setState({rooms})
+    })
+  }
 
-  // componentDidMount(){
-  //   this.fetchUsers()
-  // }
+  
+  componentDidMount() {
+        // need to make the initial call to autoFetch() to populate
+        // data right away
+        this.autoFetch();
+
+        // Now we need to make it run at a specified interval
+        setInterval(this.autoFetch, 60000); // runs every 30 seconds
+  }
 
   render() {
     return (
