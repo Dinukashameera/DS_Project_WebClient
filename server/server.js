@@ -9,7 +9,6 @@ const app = express();
 app.use(express.json());
 app.use("/api/users", users);
 app.use("/api/room", rooms);
-
 //connecting to the dataBase
 mongoose
   .connect("mongodb+srv://ds123:ds123@dswebprojectcluster-jvrhf.mongodb.net/test?retryWrites=true&w=majority", {
@@ -17,7 +16,7 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => console.log("connected to mongo DB"))
-  .catch(() => console.error(error));
+  .catch((error) => console.error(error));
 
 const PORT = process.env.PORT || 5000;
 

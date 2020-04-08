@@ -8,6 +8,7 @@ const { Room } = require("../../models/Rooms");
 router.get("/", async (req, res) => {
   try {
     const room = await Room.find();
+    console.log("dinuka")
     res.send(room);
     console.log(room);
   } catch (e) {
