@@ -1,9 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const users = require("./Routes/api/Users");
+const rooms = require("./Routes/api/Rooms");
+
 const app = express();
 
 
 app.use(express.json());
+app.use("/api/users", users);
+app.use("/api/room", rooms);
 
 //connecting to the dataBase
 mongoose
