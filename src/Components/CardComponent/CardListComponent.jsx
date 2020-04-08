@@ -27,7 +27,7 @@ export default function CardListComponent({rooms}) {
         icon={"fas fa-arrow-circle-right"}
       />
       <Card
-        count={average / rooms.length}
+        count={(average / rooms.length).toFixed(3)}
         color={"bg-warning"}
         name={"Average"}
         icon={"ion ion-person-add"}
