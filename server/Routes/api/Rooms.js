@@ -1,6 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
-
 const router = express.Router();
 const { Room } = require("../../models/Rooms");
 
@@ -8,7 +6,6 @@ const { Room } = require("../../models/Rooms");
 router.get("/", async (req, res) => {
   try {
     const room = await Room.find();
-    console.log("dinuka")
     res.send(room);
     console.log(room);
   } catch (e) {
@@ -48,5 +45,47 @@ router.post("/addroom", async (req, res) => {
     res.send(e);
   }
 });
+
+//adding customers to the room
+router.patch('/addCustomer/:Nic&:RoomNo',async(req,res) => {
+  try {
+    console.log(req.params.Nic)
+    console.log(req.params.RoomNo)
+    //checking for the room existence
+    let room = await Room.findOne({RoomNo : req.params.RoomNo})
+    console.log(room)
+    if (!room) return res.status(400).send("No Such Room exist");
+
+    room.User = req.params.Nic
+    room.IsAlarmActive = true
+
+    await room.save()
+    res.send(200).json(room)
+  } catch (error) {
+    
+  }
+})
+
+
+//adding sensor details to the room
+router.patch('/addSensor/:Smoke&:Co2&:RoomNo',async(req,res) => {
+  try {
+    console.log(req.params.Smoke)
+    console.log(req.params.Co2)
+    //checking for the room existence
+    let room = await Room.findOne({RoomNo : req.params.RoomNo})
+    console.log(room)
+    if (!room) return res.status(400).send("No Such Room exist");
+
+    room.SmokeLevel = req.params.Smoke
+    room.Co2Level = req.params.Co2
+
+    await room.save()
+    res.send(200).json(room)
+  } catch (error) {
+    
+  }
+})
+
 
 module.exports = router;
