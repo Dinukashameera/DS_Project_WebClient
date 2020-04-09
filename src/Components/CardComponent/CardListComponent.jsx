@@ -4,11 +4,11 @@ export default function CardListComponent({rooms}) {
    const array = [];
   let average = 0;
   rooms.map(room => {
-    array.push(room.smokeLevel)
+    array.push(room.SmokeLevel)
   })
 
   for (let index = 0; index < rooms.length; index++) {
-    average = parseFloat(average) + parseFloat(rooms[index].co2Level)
+    average = parseFloat(average) + parseFloat(rooms[index].Co2Level)
     
   }
  
@@ -23,7 +23,7 @@ export default function CardListComponent({rooms}) {
       <Card
         count={Math.max(...array)}
         color={"bg-success"}
-        name={"Highest Recorded"}
+        name={"Highest Recorded Smoke Level"}
         icon={"fas fa-arrow-circle-right"}
       />
       <Card
@@ -35,7 +35,7 @@ export default function CardListComponent({rooms}) {
       <Card
         count={Math.min(...array)}
         color={"bg-danger"}
-        name={"Lowest Recorded"}
+        name={"Lowest Recorded Smoke Level"}
         icon={"ion ion-pie-graph"}
       />
     </div>

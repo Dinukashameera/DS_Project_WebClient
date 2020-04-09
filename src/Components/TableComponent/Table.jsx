@@ -17,13 +17,13 @@ export default function Table({ rooms }) {
           </thead>
           <tbody>
             {rooms.map(
-              ({ roomNo, floorNo, alarmStatus, smokeLevel, co2Level }) => (
+              ({ RoomNo, FloorNo, IsAlarmActive, SmokeLevel, Co2Level }) => (
                 <TableRow
-                  room={roomNo}
-                  floor={floorNo}
-                  status={alarmStatus}
-                  smoke={smokeLevel}
-                  co2={co2Level}
+                  room={RoomNo}
+                  floor={FloorNo}
+                  status={IsAlarmActive}
+                  smoke={SmokeLevel}
+                  co2={Co2Level}
                 />
               )
             )}

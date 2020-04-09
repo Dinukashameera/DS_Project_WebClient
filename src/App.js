@@ -21,6 +21,7 @@ class App extends Component {
     axios.get(`/api/room`)
     .then(res => {
       const rooms =  res.data;
+      console.log(this.state.rooms)
       this.setState({rooms})
     })
   }
@@ -30,9 +31,9 @@ class App extends Component {
         // need to make the initial call to autoFetch() to populate
         // data right away
         this.autoFetch();
-
+        console.log(this.state.rooms)
         // Now we need to make it run at a specified interval
-        setInterval(this.autoFetch, 60000); // runs every 30 seconds
+        //setInterval(this.autoFetch, 5000); // runs every 30 seconds
   }
 
   render() {
