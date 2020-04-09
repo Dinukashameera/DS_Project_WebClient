@@ -41,6 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtNic
@@ -159,18 +161,40 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(411, 534);
+            this.label4.Location = new System.Drawing.Point(90, 521);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 29);
             this.label4.TabIndex = 47;
             this.label4.Text = "Username";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(332, 521);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 29);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "Username";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(332, 568);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 29);
+            this.label6.TabIndex = 49;
+            this.label6.Text = "Username";
+            // 
             // UsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 631);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtNic);
             this.Controls.Add(this.label8);
@@ -206,6 +230,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
