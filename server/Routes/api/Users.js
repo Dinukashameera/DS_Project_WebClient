@@ -18,20 +18,21 @@ router.get("/", async (req, res) => {
 
 //registering users
 //just to add users to no sql
-router.post("/", async (req, res) => {
+router.post("/adduser", async (req, res) => {
     console.log(req.body);
     try {
       //destructuring the req body
-      const { name, email, password,NIC } = req.body;
+      const { Name, Email, Password,Nic, MobileNumber } = req.body;
       //checking whether the user with same email address exist
-      let user = await User.findOne({ email });
+      let user = await User.findOne({ Email });
       if (user) return res.status(400).send("User already exists");
   
       user = new User({
-        name,
-        email,
-        password,
-        NIC
+        Name,
+        Email,
+        Password,
+        Nic,
+        MobileNumber
       });
       const result = await user.save();
      res.status(200).json(result)
@@ -39,6 +40,5 @@ router.post("/", async (req, res) => {
       res.send(e);
     }
   });
-
 
 module.exports = router;

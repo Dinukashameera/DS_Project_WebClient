@@ -1,28 +1,27 @@
 const mongoose = require("mongoose");
 
 const roomSchema = new mongoose.Schema({
-  roomNo: {
+  RoomNo: {
     type: Number,
     unique: true
   },
-  floorNo: {
+  FloorNo: {
     type: Number
-    
   },
-  user: {
+  User: {
     type: String,
     default : null
     
   },
-  isAlarmActive :{
+  IsAlarmActive :{
       type : Boolean,
       default : false 
   },
-  smokeLevel :{
+  SmokeLevel :{
     type : Number,
     default : 0
   },
-  co2Level : {
+  Co2Level : {
       type : Number,
       default : 0
   }

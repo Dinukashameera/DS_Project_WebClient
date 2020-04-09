@@ -18,29 +18,29 @@ router.get("/", async (req, res) => {
 
 //addd new Rooms
 //just to add users to no sql
-router.post("/", async (req, res) => {
+router.post("/addroom", async (req, res) => {
   console.log(req.body);
   try {
     //destructuring the req body
     const {
-      roomNo,
-      floorNo,
-      user,
-      isAlarmActive,
-      smokeLevel,
-      co2Level,
+      RoomNo,
+      FloorNo,
+      User,
+      IsAlarmActive,
+      SmokeLevel,
+      Co2Level,
     } = req.body;
     //checking whether the user with same email address exist
-    let room = await Room.findOne({ roomNo });
+    let room = await Room.findOne({ RoomNo });
     if (room) return res.status(400).send("Room already exists");
 
     room = new Room({
-      roomNo,
-      floorNo,
-      user,
-      isAlarmActive,
-      smokeLevel,
-      co2Level,
+      RoomNo,
+      FloorNo,
+      User,
+      IsAlarmActive,
+      SmokeLevel,
+      Co2Level,
     });
     const result = await room.save();
     res.status(200).json(result);
