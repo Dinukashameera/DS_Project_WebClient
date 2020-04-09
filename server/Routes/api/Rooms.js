@@ -47,16 +47,14 @@ router.post("/addroom", async (req, res) => {
 });
 
 //adding customers to the room
-router.patch('/addCustomer/:Nic&:RoomNo',async(req,res) => {
+router.patch('/addCustomer/:RoomNo',async(req,res) => {
   try {
-    console.log(req.params.Nic)
-    console.log(req.params.RoomNo)
     //checking for the room existence
     let room = await Room.findOne({RoomNo : req.params.RoomNo})
     console.log(room)
     if (!room) return res.status(400).send("No Such Room exist");
 
-    room.User = req.params.Nic
+    room.User = req.body.Nic
     room.IsAlarmActive = true
 
     await room.save()
@@ -68,7 +66,7 @@ router.patch('/addCustomer/:Nic&:RoomNo',async(req,res) => {
 
 
 //adding sensor details to the room
-router.patch('/addSensor/:Smoke&:Co2&:RoomNo',async(req,res) => {
+router.patch('/addSensor/:RoomNo',async(req,res) => {
   try {
     console.log(req.params.Smoke)
     console.log(req.params.Co2)
@@ -77,8 +75,8 @@ router.patch('/addSensor/:Smoke&:Co2&:RoomNo',async(req,res) => {
     console.log(room)
     if (!room) return res.status(400).send("No Such Room exist");
 
-    room.SmokeLevel = req.params.Smoke
-    room.Co2Level = req.params.Co2
+    room.SmokeLevel = req.body.SmokeLevel
+    room.Co2Level = req.body.Co2Level
 
     await room.save()
     res.send(200).json(room)
