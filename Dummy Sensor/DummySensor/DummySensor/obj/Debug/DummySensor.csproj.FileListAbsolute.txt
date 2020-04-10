@@ -1,0 +1,12 @@
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\bin\Debug\DummySensor.exe.config
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\bin\Debug\DummySensor.exe
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\bin\Debug\DummySensor.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\bin\Debug\System.Net.Http.Formatting.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\bin\Debug\Newtonsoft.Json.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.csprojAssemblyReference.cache
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.Form1.resources
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.Properties.Resources.resources
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.csproj.GenerateResource.cache
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.csproj.CopyComplete
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.exe
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\Dummy Sensor\DummySensor\DummySensor\obj\Debug\DummySensor.pdb
