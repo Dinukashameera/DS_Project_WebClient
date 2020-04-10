@@ -34,7 +34,7 @@ class App extends Component {
         this.autoFetch();
         console.log(this.state.rooms)
         // Now we need to make it run at a specified interval
-        setInterval(this.autoFetch, 20000); // runs every 20 seconds
+        setInterval(this.autoFetch, 3000); // runs every 20 seconds
   }
 
   render() {
