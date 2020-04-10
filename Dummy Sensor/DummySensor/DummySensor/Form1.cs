@@ -22,7 +22,7 @@ namespace DummySensor
         {
             SensorDataModel sensorDataModel = new SensorDataModel(Convert.ToInt32(txtRoomNo.Text.ToString()),5,8);
 
-            HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("/room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
             lblCO2.Text = sensorDataModel.Co2Level.ToString();
             lblSmoke.Text = sensorDataModel.SmokeLevel.ToString();
 

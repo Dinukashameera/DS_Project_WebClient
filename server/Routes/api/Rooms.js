@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   try {
     const room = await Room.find();
     res.send(room);
-    console.log(room);
+   // console.log(room);
   } catch (e) {
     console.log(e);
   }
@@ -66,7 +66,7 @@ router.patch('/addCustomer/:RoomNo',async(req,res) => {
 
 
 //adding sensor details to the room
-router.patch('/addSensor/:RoomNo',async(req,res) => {
+router.put('/addSensor/:RoomNo',async(req,res) => {
   try {
     console.log(req.params.Smoke)
     console.log(req.params.Co2)

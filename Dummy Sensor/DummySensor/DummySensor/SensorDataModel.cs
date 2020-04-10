@@ -11,15 +11,13 @@ namespace DummySensor
         private int roomNo;
         private int smokeLevel;
         private int co2Level;
-        private int v1;
-        private int v2;
-        private int v3;
+     
 
-        public SensorDataModel(int v1, int v2, int v3)
+        public SensorDataModel(int roomNo, int smokeLevel, int co2Level)
         {
-            this.v1 = v1;
-            this.v2 = v2;
-            this.v3 = v3;
+            this.roomNo = roomNo;
+            this.smokeLevel = smokeLevel;
+            this.co2Level = co2Level;
         }
 
         public int RoomNo 
