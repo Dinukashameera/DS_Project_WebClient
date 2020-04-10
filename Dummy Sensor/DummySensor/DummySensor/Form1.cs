@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,11 +21,29 @@ namespace DummySensor
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SensorDataModel sensorDataModel = new SensorDataModel(Convert.ToInt32(txtRoomNo.Text.ToString()),5,8);
+            int roomNO = Convert.ToInt32(txtRoomNo.Text.ToString());
+            int count = 1;
+            int smoke = 0, co2 = 21;
 
-            HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
-            lblCO2.Text = sensorDataModel.Co2Level.ToString();
-            lblSmoke.Text = sensorDataModel.SmokeLevel.ToString();
+
+            for (int i = 1; i <= 20; i++)
+            {
+                smoke++;
+                co2--;
+
+                lblCO2.Text = co2.ToString();
+                lblSmoke.Text = smoke.ToString();
+
+                SensorDataModel sensorDataModel = new SensorDataModel(roomNO,smoke,co2);
+
+                    HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
+               
+
+                    Thread.Sleep(2000);
+                
+            }
+
+         
 
         }
     }

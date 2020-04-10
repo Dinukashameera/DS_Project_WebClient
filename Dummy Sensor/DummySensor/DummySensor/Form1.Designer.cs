@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(312, 40);
+            this.label1.Location = new System.Drawing.Point(158, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(182, 29);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // txtRoomNo
             // 
             this.txtRoomNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoomNo.Location = new System.Drawing.Point(290, 81);
+            this.txtRoomNo.Location = new System.Drawing.Point(129, 87);
             this.txtRoomNo.Name = "txtRoomNo";
             this.txtRoomNo.Size = new System.Drawing.Size(220, 34);
             this.txtRoomNo.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(184, 229);
+            this.label2.Location = new System.Drawing.Point(73, 223);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 29);
             this.label2.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(184, 279);
+            this.label3.Location = new System.Drawing.Point(73, 273);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 29);
             this.label3.TabIndex = 3;
@@ -78,7 +78,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(313, 121);
+            this.button1.Location = new System.Drawing.Point(149, 127);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 54);
             this.button1.TabIndex = 4;
@@ -90,27 +90,27 @@
             // 
             this.lblCO2.AutoSize = true;
             this.lblCO2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCO2.Location = new System.Drawing.Point(431, 229);
+            this.lblCO2.Location = new System.Drawing.Point(320, 223);
             this.lblCO2.Name = "lblCO2";
-            this.lblCO2.Size = new System.Drawing.Size(135, 29);
+            this.lblCO2.Size = new System.Drawing.Size(76, 29);
             this.lblCO2.TabIndex = 5;
-            this.lblCO2.Text = "CO2 Level";
+            this.lblCO2.Text = "00:00";
             // 
             // lblSmoke
             // 
             this.lblSmoke.AutoSize = true;
             this.lblSmoke.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSmoke.Location = new System.Drawing.Point(431, 279);
+            this.lblSmoke.Location = new System.Drawing.Point(320, 273);
             this.lblSmoke.Name = "lblSmoke";
-            this.lblSmoke.Size = new System.Drawing.Size(135, 29);
+            this.lblSmoke.Size = new System.Drawing.Size(76, 29);
             this.lblSmoke.TabIndex = 6;
-            this.lblSmoke.Text = "CO2 Level";
+            this.lblSmoke.Text = "00:00";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(481, 362);
             this.Controls.Add(this.lblSmoke);
             this.Controls.Add(this.lblCO2);
             this.Controls.Add(this.button1);
