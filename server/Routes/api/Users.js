@@ -4,9 +4,11 @@ const { User } = require("../../models/User");
 
 //getting user
 router.get("/", async (req, res) => {
+  console.log('Api call from Dot Net Remote')
   try {
     const user = await User.find();
     res.send(user);
+    console.log(user)
     //res.status(200).json(user)
   } catch (e) {
     console.log(e);
@@ -20,17 +22,17 @@ router.post("/adduser", async (req, res) => {
     console.log(req.body);
     try {
       //destructuring the req body
-      const { Name, Email, Password,Nic, MobileNumber } = req.body;
+      const { name, email, password,nic, mobileNumber } = req.body;
       //checking whether the user with same email address exist
-      let user = await User.findOne({ Email });
+      let user = await User.findOne({ email });
       if (user) return res.status(400).send("User already exists");
   
       user = new User({
-        Name,
-        Email,
-        Password,
-        Nic,
-        MobileNumber
+        name,
+        email,
+        password,
+        nic,
+        mobileNumber
       });
       const result = await user.save();
      res.status(200).json(result)

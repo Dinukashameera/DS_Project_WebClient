@@ -20,24 +20,24 @@ router.post("/addroom", async (req, res) => {
   try {
     //destructuring the req body
     const {
-      RoomNo,
-      FloorNo,
-      User,
-      IsAlarmActive,
-      SmokeLevel,
-      Co2Level,
+      roomNo,
+      floorNo,
+      user,
+      isAlarmActive,
+      smokeLevel,
+      co2Level,
     } = req.body;
     //checking whether the user with same email address exist
-    let room = await Room.findOne({ RoomNo });
+    let room = await Room.findOne({ roomNo });
     if (room) return res.status(400).send("Room already exists");
 
     room = new Room({
-      RoomNo,
-      FloorNo,
-      User,
-      IsAlarmActive,
-      SmokeLevel,
-      Co2Level,
+      roomNo,
+      floorNo,
+      user,
+      isAlarmActive,
+      smokeLevel,
+      co2Level,
     });
     const result = await room.save();
     res.status(200).json(result);
@@ -47,15 +47,16 @@ router.post("/addroom", async (req, res) => {
 });
 
 //adding customers to the room
-router.patch('/addCustomer/:RoomNo',async(req,res) => {
+router.put('/addCustomer/:roomNo',async(req,res) => {
   try {
     //checking for the room existence
-    let room = await Room.findOne({RoomNo : req.params.RoomNo})
-    console.log(room)
+    console.log(req);
+    let room = await Room.findOne({roomNo : req.params.roomNo})
+    //console.log(room)
     if (!room) return res.status(400).send("No Such Room exist");
 
-    room.User = req.body.Nic
-    room.IsAlarmActive = true
+    room.user = req.body.nic
+    room.isAlarmActive = true
 
     await room.save()
     res.send(200).json(room)
@@ -66,17 +67,16 @@ router.patch('/addCustomer/:RoomNo',async(req,res) => {
 
 
 //adding sensor details to the room
-router.put('/addSensor/:RoomNo',async(req,res) => {
+router.put('/addSensor/:roomNo',async(req,res) => {
   try {
-    console.log(req.params.Smoke)
-    console.log(req.params.Co2)
+
     //checking for the room existence
-    let room = await Room.findOne({RoomNo : req.params.RoomNo})
+    let room = await Room.findOne({roomNo : req.params.roomNo})
     console.log(room)
     if (!room) return res.status(400).send("No Such Room exist");
 
-    room.SmokeLevel = req.body.SmokeLevel
-    room.Co2Level = req.body.Co2Level
+    room.smokeLevel = req.body.smokeLevel
+    room.co2Level = req.body.co2Level
 
     await room.save()
     res.send(200).json(room)
