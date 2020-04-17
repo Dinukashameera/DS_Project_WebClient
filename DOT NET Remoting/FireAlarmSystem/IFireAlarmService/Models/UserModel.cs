@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FireAlarmService
 {
-    class UserModel
+    [Serializable]
+    public class UserModel
     {
-
         private String name;
         private String nic;
         private String email;
@@ -54,5 +54,8 @@ namespace FireAlarmService
             get { return mobileNumber; }
             set { mobileNumber = value; }
         }
+
+    
+
     }
 }

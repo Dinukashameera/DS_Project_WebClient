@@ -3,3 +3,8 @@ E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\IFireAlarmSe
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.csprojAssemblyReference.cache
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.dll
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\IFireAlarmService\bin\Debug\IFireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\IFireAlarmService\bin\Debug\IFireAlarmService.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.csprojAssemblyReference.cache
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\IFireAlarmService\obj\Debug\IFireAlarmService.pdb

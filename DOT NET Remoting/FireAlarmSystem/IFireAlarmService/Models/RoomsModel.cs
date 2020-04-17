@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FireAlarmService.Models
 {
-    class RoomsModel
+    [Serializable]
+    public class RoomsModel
     {
         private int roomNo;
         private int floorNo;
@@ -45,5 +46,7 @@ namespace FireAlarmService.Models
             get { return co2Level; }
             set { co2Level = value; }
         }
+
+
     }
 }

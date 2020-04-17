@@ -38,6 +38,16 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnadd = new System.Windows.Forms.Button();
+            this.lblAssignMsg = new System.Windows.Forms.Label();
+            this.btnAssignUser = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAssignRoomNo = new System.Windows.Forms.TextBox();
+            this.txtAssignUserNic = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnUserForm = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCO2Level
@@ -116,7 +126,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(343, 456);
+            this.label4.Location = new System.Drawing.Point(336, 426);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(124, 29);
             this.label4.TabIndex = 56;
@@ -133,11 +143,108 @@
             this.btnadd.UseVisualStyleBackColor = true;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
+            // lblAssignMsg
+            // 
+            this.lblAssignMsg.AutoSize = true;
+            this.lblAssignMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAssignMsg.Location = new System.Drawing.Point(292, 765);
+            this.lblAssignMsg.Name = "lblAssignMsg";
+            this.lblAssignMsg.Size = new System.Drawing.Size(67, 29);
+            this.lblAssignMsg.TabIndex = 66;
+            this.lblAssignMsg.Text = "MSG";
+            // 
+            // btnAssignUser
+            // 
+            this.btnAssignUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAssignUser.Location = new System.Drawing.Point(177, 708);
+            this.btnAssignUser.Name = "btnAssignUser";
+            this.btnAssignUser.Size = new System.Drawing.Size(352, 44);
+            this.btnAssignUser.TabIndex = 65;
+            this.btnAssignUser.Text = "ASSIGN USER";
+            this.btnAssignUser.UseVisualStyleBackColor = true;
+            this.btnAssignUser.Click += new System.EventHandler(this.btnAssignUser_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(172, 636);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(171, 29);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Room Number";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(172, 551);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 29);
+            this.label7.TabIndex = 63;
+            this.label7.Text = "User\'s NIC";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(172, 495);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(258, 29);
+            this.label6.TabIndex = 62;
+            this.label6.Text = "Assign User to a Room";
+            // 
+            // txtAssignRoomNo
+            // 
+            this.txtAssignRoomNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignRoomNo.Location = new System.Drawing.Point(177, 668);
+            this.txtAssignRoomNo.Name = "txtAssignRoomNo";
+            this.txtAssignRoomNo.Size = new System.Drawing.Size(352, 34);
+            this.txtAssignRoomNo.TabIndex = 61;
+            // 
+            // txtAssignUserNic
+            // 
+            this.txtAssignUserNic.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAssignUserNic.Location = new System.Drawing.Point(177, 583);
+            this.txtAssignUserNic.Name = "txtAssignUserNic";
+            this.txtAssignUserNic.Size = new System.Drawing.Size(352, 34);
+            this.txtAssignUserNic.TabIndex = 60;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(708, 121);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(607, 297);
+            this.dataGridView1.TabIndex = 67;
+            // 
+            // btnUserForm
+            // 
+            this.btnUserForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserForm.Location = new System.Drawing.Point(932, 44);
+            this.btnUserForm.Name = "btnUserForm";
+            this.btnUserForm.Size = new System.Drawing.Size(355, 44);
+            this.btnUserForm.TabIndex = 68;
+            this.btnUserForm.Text = "Click Here to Users Form";
+            this.btnUserForm.UseVisualStyleBackColor = true;
+            this.btnUserForm.Click += new System.EventHandler(this.btnUserForm_Click);
+            // 
             // RoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 494);
+            this.ClientSize = new System.Drawing.Size(1367, 875);
+            this.Controls.Add(this.btnUserForm);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.lblAssignMsg);
+            this.Controls.Add(this.btnAssignUser);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtAssignRoomNo);
+            this.Controls.Add(this.txtAssignUserNic);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.txtCO2Level);
@@ -150,6 +257,8 @@
             this.Controls.Add(this.lblUsername);
             this.Name = "RoomForm";
             this.Text = "RoomForm";
+            this.Load += new System.EventHandler(this.RoomForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +276,14 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Label lblAssignMsg;
+        private System.Windows.Forms.Button btnAssignUser;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtAssignRoomNo;
+        private System.Windows.Forms.TextBox txtAssignUserNic;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnUserForm;
     }
 }
