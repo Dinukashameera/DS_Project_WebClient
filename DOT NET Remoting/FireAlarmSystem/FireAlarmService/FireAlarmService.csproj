@@ -51,8 +51,6 @@
   <ItemGroup>
     <Compile Include="Controllers\RoomSensorService.cs" />
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="Models\RoomsModel.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Controllers\UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,5 +60,6 @@
       <Name>IFireAlarmService</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

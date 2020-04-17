@@ -9,13 +9,23 @@ namespace FireAlarmService
 {
     public class UserServices : MarshalByRefObject, IFireAlarmService.IUsersService
     {
-        public string registerUser(string name, string email, string mobile, string nic, string password)
+        public IEnumerable<UserModel> viewUsers()
         {
-
-            UserModel userModel = new UserModel(name, nic, email, password, mobile);
-
-            HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/adduser", userModel).Result;
-            return "My name is : " + userModel.Name;
+            IEnumerable<UserModel> userList;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("users/").Result;
+            userList = response.Content.ReadAsAsync<IEnumerable<UserModel>>().Result;
+            return userList;
         }
+
+        public int registerUser(string name, string email, string mobile, string nic, string password)
+        {
+            UserModel userModel = new UserModel(name, nic, email, password, mobile);
+            HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/adduser", userModel).Result;
+            return Convert.ToInt32(response.StatusCode);
+        }
+
+      
+
+
     }
 }

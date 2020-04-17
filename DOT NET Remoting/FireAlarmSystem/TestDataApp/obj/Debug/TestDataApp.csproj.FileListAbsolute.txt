@@ -1,0 +1,11 @@
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\TestDataApp.exe.config
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\TestDataApp.exe
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\TestDataApp.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\System.Net.Http.Formatting.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\Newtonsoft.Json.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\obj\Debug\TestDataApp.csprojAssemblyReference.cache
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\obj\Debug\TestDataApp.csproj.CopyComplete
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\obj\Debug\TestDataApp.exe
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\obj\Debug\TestDataApp.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\IFireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\TestDataApp\bin\Debug\IFireAlarmService.pdb

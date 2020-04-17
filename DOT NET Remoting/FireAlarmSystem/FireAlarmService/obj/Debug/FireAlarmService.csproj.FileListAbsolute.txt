@@ -8,3 +8,12 @@ E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\FireAlarmSer
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.csproj.CopyComplete
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.dll
 E:\Developing Projectes\Visual Studio\.NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\bin\Debug\FireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\bin\Debug\FireAlarmService.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\bin\Debug\IFireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\bin\Debug\Newtonsoft.Json.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\bin\Debug\IFireAlarmService.pdb
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.csprojAssemblyReference.cache
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.csproj.CopyComplete
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.dll
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\FireAlarmService\obj\Debug\FireAlarmService.pdb

@@ -50,7 +50,7 @@ router.post("/addroom", async (req, res) => {
 router.put('/addCustomer/:roomNo',async(req,res) => {
   try {
     //checking for the room existence
-    console.log(req);
+    //console.log(req);
     let room = await Room.findOne({roomNo : req.params.roomNo})
     //console.log(room)
     if (!room) return res.status(400).send("No Such Room exist");

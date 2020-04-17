@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DummySensor
 {
-    class SensorDataModel
+    [Serializable]
+    public class SensorDataModel
     {
         private int roomNo;
         private int smokeLevel;
