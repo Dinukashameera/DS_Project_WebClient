@@ -4,11 +4,11 @@ export default function CardListComponent({rooms}) {
    const array = [];
   let average = 0;
   rooms.map(room => {
-    array.push(room.SmokeLevel)
+    array.push(room.smokeLevel)
   })
 
   for (let index = 0; index < rooms.length; index++) {
-    average = parseFloat(average) + parseFloat(rooms[index].Co2Level)
+    average = parseFloat(average) + parseFloat(rooms[index].co2Level)
     
   }
  
