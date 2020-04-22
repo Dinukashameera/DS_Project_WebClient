@@ -34,7 +34,7 @@ namespace RemotingClient
 
         private void btnAssignUser_Click(object sender, EventArgs e)
         {
-            lblAssignMsg.Text = client.assignRoom(Convert.ToInt32(txtAssignRoomNo.Text.ToString()),txtAssignUserNic.Text.ToString());
+            lblAssignMsg.Text = client.assignRoom(Convert.ToInt32(txtAssignRoomNo.Text.ToString()),txtAssignUserNic.Text.ToString(),txtEmail.Text,txtMobile.Text);
         }
 
         private void RoomForm_Load(object sender, EventArgs e)
@@ -45,10 +45,12 @@ namespace RemotingClient
             dataGridView1.Columns[2].Name = "CO2 Level";
             dataGridView1.Columns[3].Name = "Smoke Level";
 
-           
 
-           
-           fillData();
+
+            fillData();
+            fillData();
+         fillData();
+            fillData();
             
         }
 
@@ -58,8 +60,14 @@ namespace RemotingClient
             IEnumerable<RoomsModel> roomList = client.viewRooms();
             foreach (var row in roomList.ToList())
             {
-                string[] userDataArray = { row.RoomNo.ToString(),row.FloorNo.ToString(),row.Co2Level.ToString(),row.SmokeLevel.ToString() };
-                dataGridView1.Rows.Add(userDataArray);
+
+                if(row.IsAlarmActive == true)
+                {
+                    string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString(), row.Co2Level.ToString(), row.SmokeLevel.ToString() };
+                    dataGridView1.Rows.Add(userDataArray);
+                }
+
+             
             }
         }
 
@@ -73,6 +81,16 @@ namespace RemotingClient
             UsersForm Check = new UsersForm();
             Check.Show();
             this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

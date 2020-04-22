@@ -47,6 +47,10 @@
             this.txtAssignUserNic = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnUserForm = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMobile = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +151,7 @@
             // 
             this.lblAssignMsg.AutoSize = true;
             this.lblAssignMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssignMsg.Location = new System.Drawing.Point(292, 765);
+            this.lblAssignMsg.Location = new System.Drawing.Point(310, 997);
             this.lblAssignMsg.Name = "lblAssignMsg";
             this.lblAssignMsg.Size = new System.Drawing.Size(67, 29);
             this.lblAssignMsg.TabIndex = 66;
@@ -156,7 +160,7 @@
             // btnAssignUser
             // 
             this.btnAssignUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAssignUser.Location = new System.Drawing.Point(177, 708);
+            this.btnAssignUser.Location = new System.Drawing.Point(177, 937);
             this.btnAssignUser.Name = "btnAssignUser";
             this.btnAssignUser.Size = new System.Drawing.Size(352, 44);
             this.btnAssignUser.TabIndex = 65;
@@ -231,11 +235,51 @@
             this.btnUserForm.UseVisualStyleBackColor = true;
             this.btnUserForm.Click += new System.EventHandler(this.btnUserForm_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(172, 730);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 29);
+            this.label3.TabIndex = 70;
+            this.label3.Text = "User Email";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(177, 762);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(352, 34);
+            this.txtEmail.TabIndex = 69;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(172, 821);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 29);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "User Mobile";
+            // 
+            // txtMobile
+            // 
+            this.txtMobile.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMobile.Location = new System.Drawing.Point(177, 853);
+            this.txtMobile.Name = "txtMobile";
+            this.txtMobile.Size = new System.Drawing.Size(352, 34);
+            this.txtMobile.TabIndex = 71;
+            // 
             // RoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1367, 875);
+            this.ClientSize = new System.Drawing.Size(1367, 1055);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtMobile);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.btnUserForm);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblAssignMsg);
@@ -285,5 +329,9 @@
         private System.Windows.Forms.TextBox txtAssignUserNic;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnUserForm;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtMobile;
     }
 }

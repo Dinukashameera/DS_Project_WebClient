@@ -13,6 +13,6 @@ namespace IFireAlarmService
     {
         string addRoom(int roomNo, int floorNo, int smokeLevel, int co2Level);
         IEnumerable<RoomsModel> viewRooms();
-        string assignRoom(int roomNo,string nic);
+        string assignRoom(int roomNo,string nic,string email,string mobile);
     }
 }

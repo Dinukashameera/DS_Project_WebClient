@@ -11,7 +11,7 @@ app.use("/api/users", users);
 app.use("/api/room", rooms);
 //connecting to the dataBase
 mongoose
-  .connect("mongodb+srv://ds123:ds123@dswebprojectcluster-jvrhf.mongodb.net/test?retryWrites=true&w=majority", {
+  .connect("mongodb://localhost:27017/ds_proj_remote", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
