@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Room } = require("../../models/Rooms");
 
+const axios = require('axios');
+
 //getting Rooms
 router.get("/", async (req, res) => {
   try {
@@ -26,7 +28,14 @@ router.post("/addroom", async (req, res) => {
       isAlarmActive,
       smokeLevel,
       co2Level,
+      isCO2Active,
+      isSmokeActive,
+      isSmokeSMSSent,
+      isCO2SMSSent,
+      isCO2MailSent,
+      isSmokeMailSent
     } = req.body;
+
     //checking whether the user with same room address exist
 
     let room = await Room.findOne({ roomNo });
@@ -40,6 +49,12 @@ router.post("/addroom", async (req, res) => {
       isAlarmActive,
       smokeLevel,
       co2Level,
+      isCO2Active,
+      isSmokeActive,
+      isSmokeSMSSent,
+      isCO2SMSSent,
+      isCO2MailSent,
+      isSmokeMailSent
     });
     const result = await room.save();
     res.status(200).json(result);
@@ -57,9 +72,9 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     if (!room) return res.status(400).send("No Such Room exist");
 
-    room.user.userNic = req.body.nic;
-    room.user.userEmail = req.body.email;
-    room.user.userMobile = req.body.mobile;
+    room.user.nic = req.body.nic;
+    room.user.email = req.body.email;
+    room.user.mobile = req.body.mobile;
 
     room.isAlarmActive = true;
 
@@ -81,6 +96,27 @@ router.put("/addSensor/:roomNo", async (req, res) => {
     room.smokeLevel = req.body.smokeLevel;
     room.co2Level = req.body.co2Level;
 
+    async function updateAlarms(id) {
+      
+      const updatedRoom = await Room.findById(id);
+       if (!updatedRoom) {
+         res.status(404).json({"msg":"Not Found"})
+       }
+
+      if(updatedRoom.smokeLevel <= 10 && updatedRoom.smokeLevel >= 5){
+        updatedRoom.isSmokeActive = true;
+        updatedRoom.save()
+      }
+
+      if(updatedRoom.co2Level <= 10 && updatedRoom.co2Level >= 5){
+        updatedRoom.isCO2Active= true;
+        updatedRoom.save()
+      }
+      
+      res.sendStatus(200);
+    }
+    updateAlarms(room._id);
+
     await room.save();
     res.json(room);
   } catch (error) {}
@@ -97,16 +133,69 @@ router.get("/withUsers", async (req, res) => {
   }
 });
 
-//alert needed rooms
-router.get("/alert", async (req, res) => {
-  try {
-    const room = await Room.find().or([
-      { co2Level: { $gte: 5, $lt: 10 } },
-      { smokeLevel: { $gte: 5, $lt: 10 } },
-    ]);
 
-    res.sendStatus(200).json(room)
-    // console.log(room);
+//alert needed rooms
+router.get("/alert", async(req, res)=>{
+  try {
+    const room = await Room.find();
+  
+    for(let i = 0 ; i < room.length ; i++){
+      if(room[i].isCO2Active === true){
+        console.log('CO2 Active');
+
+        if(room[i].isCO2SMSSent === false){
+          
+          axios({
+            method:'get',
+            url:`http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}-CO2 Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+          })
+
+        }
+
+         async function updateSmsStatus(id){
+
+          const smsRoom = await Room.findById(id);
+          if (!smsRoom) {
+            res.status(404).json({"msg":"Not Found"})
+          }
+
+          smsRoom.isCO2SMSSent = true;
+          smsRoom.save();
+
+         }
+
+         updateSmsStatus(room[i]._id)
+
+      }
+      if(room[i].isSmokeActive === true){
+        console.log('Smoke Active');
+
+        if(room[i].isSmokeSMSSent === false){
+          axios({
+              method:'get',
+              url:`http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}- Smoke Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+          })
+        }
+
+        
+        async function updateSmsStatus(id){
+
+          const smsRoom = await Room.findById(id);
+          if (!smsRoom) {
+            res.status(404).json({"msg":"Not Found"})
+          }
+
+          smsRoom.isSmokeSMSSent = true;
+          smsRoom.save();
+          
+         }
+
+         updateSmsStatus(room[i]._id)
+      }
+    }
+
+    res.send(room);
+
   } catch (e) {
     console.log(e);
   }

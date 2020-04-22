@@ -23,10 +23,10 @@ namespace DummySensor
         {
             int roomNO = Convert.ToInt32(txtRoomNo.Text.ToString());
             int count = 1;
-            int smoke = 0, co2 = 21;
+            int smoke = 0, co2 = 10;
 
 
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 10; i++)
             {
                 smoke++;
                 co2--;
@@ -36,10 +36,10 @@ namespace DummySensor
 
                 SensorDataModel sensorDataModel = new SensorDataModel(roomNO,smoke,co2);
 
-                    HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
+                HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
                
 
-                    Thread.Sleep(2000);
+                    Thread.Sleep(5000);
                 
             }
 

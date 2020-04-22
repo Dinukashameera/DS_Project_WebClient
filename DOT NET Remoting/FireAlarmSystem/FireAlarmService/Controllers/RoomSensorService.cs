@@ -13,15 +13,15 @@ namespace FireAlarmService
     {
         public string addRoom(int roomNo, int floorNo, int smokeLevel, int co2Level)
         {
-            RoomsModel roomsModel = new Models.RoomsModel(roomNo,floorNo,smokeLevel,co2Level);
+            RoomsModel roomsModel = new Models.RoomsModel(roomNo,floorNo,smokeLevel,co2Level,null,false);
 
             HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("room/addroom", roomsModel).Result;
             return "My name is : " + roomsModel.RoomNo;
         }
 
-        public string assignRoom(int roomNo, string nic)
+        public string assignRoom(int roomNo, string nic,string email,string mobile)
         {
-            AssignRoomModel assignRoomsModel = new AssignRoomModel(roomNo,nic);
+            AssignRoomModel assignRoomsModel = new AssignRoomModel(roomNo,nic,email,mobile);
             HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addCustomer/" +roomNo, assignRoomsModel).Result;
             return "Successfully Assigned" + assignRoomsModel.Nic;
         }

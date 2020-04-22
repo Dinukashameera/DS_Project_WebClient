@@ -9,19 +9,19 @@ const roomSchema = new mongoose.Schema({
     type: Number,
   },
   user: {
-    userNic: {
+    nic: {
       type: String,
       default: null,
     },
 
-    userEmail: {
+    email: {
       type: String,
       default: null,
     },
-    userMobile: {
+    mobile: {
       type: String,
       default: null,
-    },
+    }
   },
   isAlarmActive: {
     type: Boolean,
@@ -35,6 +35,27 @@ const roomSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  isCO2Active:{
+    type:Boolean,
+    default:false
+  },
+  isSmokeActive:{
+    type:Boolean,
+    default:false
+  },
+  isSmokeSMSSent:{
+    type:Boolean,
+    default:false
+  },
+  isCO2SMSSent:{
+    type:Boolean,
+    default:false
+  },
+  isMailSent:{
+    type:Boolean,
+    default:false
+  }
+
 });
 
 const Room = mongoose.model("Room", roomSchema);

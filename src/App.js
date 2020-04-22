@@ -21,6 +21,11 @@ class App extends Component {
       this.setState({ rooms });
       console.log(this.state.rooms)
     });
+
+    axios.put('/api/room/smsEmailStatus').then((res) => {
+      console.log(res)
+    }).catch((err) => console.error(err))
+
   };
 
   componentDidMount() {
