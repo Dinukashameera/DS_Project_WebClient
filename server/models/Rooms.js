@@ -21,6 +21,14 @@ const roomSchema = new mongoose.Schema({
     mobile: {
       type: String,
       default: null,
+    },
+    name:{
+      type:String,
+      default:null
+    },
+    password:{
+      type:String,
+      default:null
     }
   },
   isAlarmActive: {

@@ -1,18 +1,88 @@
 const express = require("express");
 const router = express.Router();
 const { Room } = require("../../models/Rooms");
-
+const nodemailer = require("nodemailer");
 const axios = require('axios');
 
 //getting Rooms
+//getting Rooms
 router.get("/", async (req, res) => {
   try {
-    const room = await Room.find().select('-user');
+    const room = await Room.find();
+
+    //sending email to the client
+    for (let index = 0; index < room.length; index++) {
+      if (
+        ((room[index].co2Level >= 5 && room[index].co2Level <= 10) ||
+          (room[index].smokeLevel >= 5 && room[index].smokeLevel <= 10)) &&
+        room[index].isAlarmActive === true &&
+        room[index].isMailSent === false
+      ) {
+        let transporter = nodemailer.createTransport({
+          host: "smtp.mailtrap.io",
+          port: 2525,
+          auth: {
+            user: "cd1d2b8d863288",
+            pass: "41ff48f6db0ffa",
+          },
+        });
+
+        // send mail with defined transport object
+        let info = await transporter.sendMail({
+          from: "dinuka@gmail.com", // sender address
+          to: room[index].user.email, // list of receivers
+          subject: "Item Approved", // Subject line
+          text: "Hello world?", // plain text body
+          html: `<h1>Hello</h1><br/>
+                  <span><h3>Room No : ${room[index].roomNo}</h3></span>
+                  <span>CO2 Level = ${room[index].co2Level}</span><br/>
+                  <span>Smoke Level = ${room[index].smokeLevel}</span> `, // html body
+        });
+
+        transporter.sendMail(info, function (err, info) {
+          if (err) {
+            //console.log(err);
+          } else {
+           // console.log(info);
+          }
+        });
+        room[index].isMailSent = true;
+        await room[index].save();
+      }
+    }
+
     res.send(room);
-    // console.log(room);
+    console.log(room);
   } catch (e) {
     console.log(e);
   }
+});
+
+
+router.put("/smsEmailStatus", async (req, res) => {
+  try {
+    const room = await Room.find();
+    console.lo("excuted The put method");
+    setTimeout(async function () {
+      try {
+        for (let index = 0; index < room.length; index++) {
+          if (
+            (room[index].co2Level >= 5 || room[index].co2Level <= 10) &&
+            room[index].isAlarmActive
+          ) {
+            room[index].isMailSent = true;
+           
+          } else {
+            room[index].isMailSent = false;
+           
+          }
+        }
+      } catch (error) {}
+    }, 2000);
+
+    const result = await room.save();
+    res.send(result);
+  } catch (error) {}
 });
 
 //addd new Rooms
@@ -69,12 +139,15 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
   try {
     //checking for the room existence
     //console.log(req);
+    console.log("DOT NET sending request is : " ,req);
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     if (!room) return res.status(400).send("No Such Room exist");
 
     room.user.nic = req.body.nic;
     room.user.email = req.body.email;
     room.user.mobile = req.body.mobile;
+    room.user.name = req.body.name;
+    room.user.password = req.body.password;
 
     room.isAlarmActive = true;
 
@@ -89,6 +162,7 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
 router.put("/addSensor/:roomNo", async (req, res) => {
   try {
     //checking for the room existence
+   
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     console.log(room);
     if (!room) return res.status(400).send("No Such Room exist");
