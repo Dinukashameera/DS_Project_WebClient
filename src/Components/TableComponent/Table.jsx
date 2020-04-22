@@ -1,6 +1,7 @@
 import React from "react";
 import TableRow from "./TableRow";
 export default function Table({ rooms }) {
+  console.log(rooms)
   return (
     <div className="" style ={style.table}>
       <h2 className="text-center">ROOM DETAILS</h2>
@@ -17,13 +18,13 @@ export default function Table({ rooms }) {
           </thead>
           <tbody>
             {rooms.map(
-              ({ RoomNo, FloorNo, IsAlarmActive, SmokeLevel, Co2Level }) => (
+              ({ roomNo, floorNo, isAlarmActive, smokeLevel, co2Level }) => (
                 <TableRow
-                  room={RoomNo}
-                  floor={FloorNo}
-                  status={IsAlarmActive}
-                  smoke={SmokeLevel}
-                  co2={Co2Level}
+                  room={roomNo}
+                  floor={floorNo}
+                  status={isAlarmActive}
+                  smoke={smokeLevel}
+                  co2={co2Level}
                 />
               )
             )}

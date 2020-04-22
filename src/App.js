@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios'
+import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./Components/NavComponent/navcomponent";
 import Cardlist from "./Components/CardComponent/CardListComponent";
@@ -11,30 +11,25 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    rooms: [
-      
-    ]
+    rooms: [],
   };
-  
 
-  autoFetch = () =>{
-    axios.get(`/api/room`)
-    .then(res => {
-      
-      const rooms =  res.data;
-      console.log(res.data)
-      this.setState({rooms})
-    })
-  }
+  autoFetch = () => {
+    axios.get(`/api/room`).then((res) => {
+      const rooms = res.data;
+      console.log(res.data);
+      this.setState({ rooms });
+      console.log(this.state.rooms)
+    });
+  };
 
-  
   componentDidMount() {
-        // need to make the initial call to autoFetch() to populate
-        // data right away
-        this.autoFetch();
-        console.log(this.state.rooms)
-        // Now we need to make it run at a specified interval
-        setInterval(this.autoFetch, 3000); // runs every 20 seconds
+    // need to make the initial call to autoFetch() to populate
+    // data right away
+    this.autoFetch();
+    console.log(this.state.rooms);
+    // Now we need to make it run at a specified interval
+    setInterval(this.autoFetch, 15000); // runs every 20 seconds
   }
 
   render() {
@@ -59,7 +54,7 @@ class App extends Component {
             </div>
 
             <div className="chartcontainer">
-              <Chart />
+              {/* <Chart /> */}
             </div>
           </div>
           <Footer />
