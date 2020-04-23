@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9603B140-EFD0-43CC-96E9-FEDE48B1D9EF}</ProjectGuid>
+    <ProjectGuid>{26F66B0E-30E0-49CF-BA67-A749C10FC3A1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RemotingClient</RootNamespace>
     <AssemblyName>RemotingClient</AssemblyName>
@@ -46,26 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRooms.Designer.cs">
+      <DependentUpon>AddRooms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVariables.cs" />
-    <Compile Include="RoomForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RoomForm.Designer.cs">
-      <DependentUpon>RoomForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UsersForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UsersForm.Designer.cs">
-      <DependentUpon>UsersForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="RoomForm.resx">
-      <DependentUpon>RoomForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddRooms.resx">
+      <DependentUpon>AddRooms.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersForm.resx">
-      <DependentUpon>UsersForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

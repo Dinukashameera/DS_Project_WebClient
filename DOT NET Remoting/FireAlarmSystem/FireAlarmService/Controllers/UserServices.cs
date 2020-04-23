@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireAlarmService.Models;
+using IFireAlarmService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,23 +11,21 @@ namespace FireAlarmService
 {
     public class UserServices : MarshalByRefObject, IFireAlarmService.IUsersService
     {
-        public IEnumerable<UserModel> viewUsers()
-        {
-            IEnumerable<UserModel> userList;
-            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("users/").Result;
-            userList = response.Content.ReadAsAsync<IEnumerable<UserModel>>().Result;
-            return userList;
-        }
+      
 
-        public int registerUser(string name, string email, string mobile, string nic, string password)
+        public int assignRoomToUser(string username, string email, string mobile, string nic, string password,int roomNo)
         {
-            UserModel userModel = new UserModel(name, nic, email, password, mobile);
-            HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/adduser", userModel).Result;
+            UserModel userModel = new UserModel(username, nic, email, password, mobile);
+            HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addCustomer/" + roomNo, userModel).Result;
             return Convert.ToInt32(response.StatusCode);
         }
 
-      
-
-
+        public IEnumerable<RoomsModel> assignedRooms()
+        {
+            IEnumerable<RoomsModel> roomList;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
+            roomList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
+            return roomList;
+        }
     }
 }
