@@ -1,5 +1,4 @@
 ﻿using FireAlarmService.Models;
-using IFireAlarmService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

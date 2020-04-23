@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="IRoomSensorService.cs" />
     <Compile Include="IUsersService.cs" />
-    <Compile Include="Models\AssignRoomModel.cs" />
+    <Compile Include="Models\AdminModel.cs" />
     <Compile Include="Models\RoomsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

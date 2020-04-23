@@ -1,4 +1,5 @@
 ﻿using FireAlarmService.Models;
+using IFireAlarmService.Models;
 using IFireAlarmService;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,23 @@ namespace FireAlarmService
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
             roomList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
             return roomList;
+        }
+
+      
+        public int registerAdmin(string name, string email, string mobile, string password)
+        {
+            AdminModel adminModel = new AdminModel(name, email, mobile, password);
+            HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/register",adminModel).Result;
+            return Convert.ToInt32(response.StatusCode);
+        }
+
+
+
+        public int loginAdmin(string email, string password)
+        {
+            AdminModel adminModel = new AdminModel(email,password);
+            HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/login",adminModel).Result;
+            return Convert.ToInt32(response.StatusCode);
         }
     }
 }

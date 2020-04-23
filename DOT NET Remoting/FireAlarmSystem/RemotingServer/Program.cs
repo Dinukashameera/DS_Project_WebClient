@@ -22,6 +22,11 @@ namespace RemotingServer
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "assignRoomToUser", WellKnownObjectMode.Singleton);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "assignedRooms", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "registerAdmin", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "loginAdmin", WellKnownObjectMode.Singleton);
+            
+            
+
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "addRoom", WellKnownObjectMode.Singleton);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "viewRooms", WellKnownObjectMode.Singleton);
