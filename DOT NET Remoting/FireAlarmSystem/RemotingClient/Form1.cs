@@ -11,6 +11,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Runtime.Remoting;
 using FireAlarmService.Models;
+using System.Threading;
 
 namespace RemotingClient
 {
@@ -18,12 +19,15 @@ namespace RemotingClient
     {
         IFireAlarmService.IUsersService client;
         TcpChannel channel;
+
+        private static TimerCallback fillData;
+
         public UserForm()
         {
             InitializeComponent();
-            //fillData();
+            //dataGridView1.Rows.Clear();
+           
             channel = GlobalVariables.RegisterChannel();
-
 
            client = (IFireAlarmService.IUsersService)Activator.GetObject
            (typeof(IFireAlarmService.IUsersService), "tcp://localhost:8080/assignRoomToUser");
@@ -39,6 +43,11 @@ namespace RemotingClient
             if (i == 200)
             {
                 MessageBox.Show("User Added to the Room Successfully!!!");
+                txtUsername.Text = "";
+                txtEmail.Text = "";
+                txtMobile.Text = "";
+                txtNic.Text = "";
+                txtRoomNo.Text = "";
             }
             else
             {
@@ -46,23 +55,31 @@ namespace RemotingClient
             }
         }
 
+        internal  void Run()
+        {
+            var autoEvent = new AutoResetEvent(false);
+            int seconds = 10 * 1000;
+            var timer = new System.Threading.Timer(FillData, autoEvent, 1000, seconds);
+        }
 
-        public void fillData()
+
+        private void FillData(object state)
         {
             IEnumerable<RoomsModel> roomList = client.assignedRooms();
+            dataGridView1.Rows.Clear();
             foreach (var row in roomList.ToList())
             {
 
                 if (row.IsAlarmActive == true)
                 {
-                    string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString(), row.Co2Level.ToString(), row.SmokeLevel.ToString() };
+                    string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString()+ " th Floor", row.Co2Level.ToString()+ " ml", row.SmokeLevel.ToString()+ " ml" };
                     dataGridView1.Rows.Add(userDataArray);
                 }
-
 
             }
         }
 
+    
         private void btnreset_Click(object sender, EventArgs e)
         {
             channel.StopListening(null);
@@ -83,7 +100,13 @@ namespace RemotingClient
             dataGridView1.Columns[2].Name = "CO2 Level";
             dataGridView1.Columns[3].Name = "Smoke Level";
 
-            
+            Run();
+
         }
+
+    
+
+     
     }
+
 }
