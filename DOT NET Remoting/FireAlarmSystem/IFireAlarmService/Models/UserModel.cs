@@ -13,16 +13,16 @@ namespace FireAlarmService
         private String nic;
         private String email;
         private String password;
-        private String mobileNumber;
+        private String mobile;
 
 
-        public UserModel(String a_name, String a_NIC, String a_email, String a_password, String a_mobileNumber)
+        public UserModel(String name, String nic, String email, String password, String mobile)
         {
-            name = a_name;
-            nic = a_NIC;
-            email = a_email;
-            password = a_password;
-            mobileNumber = a_mobileNumber;
+            this.name = name;
+            this.nic = nic;
+            this.email = email;
+            this.password = password;
+            this.mobile= mobile;
         }
 
         public string Name
@@ -49,11 +49,13 @@ namespace FireAlarmService
             set { password = value; }
         }
 
-        public string MobileNumber
+        public string Mobile
         {
-            get { return mobileNumber; }
-            set { mobileNumber = value; }
+            get { return mobile; }
+            set { mobile = value; }
         }
+
+     
 
     
 

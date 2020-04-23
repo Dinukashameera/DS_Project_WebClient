@@ -20,17 +20,12 @@ namespace RemotingServer
             RoomSensorService fireSenorService = new RoomSensorService();
             ChannelServices.RegisterChannel(channel);
 
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "registerUser", WellKnownObjectMode.Singleton);
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "viewUsers", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "assignRoomToUser", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "assignedRooms", WellKnownObjectMode.Singleton);
 
-         
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "addRoom", WellKnownObjectMode.Singleton);
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "viewRooms", WellKnownObjectMode.Singleton);
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "assignRoom", WellKnownObjectMode.Singleton);
-
-
-
-
+            
+  
             Console.WriteLine("Remoting server started @ " + DateTime.Now);
             Console.ReadLine();
 

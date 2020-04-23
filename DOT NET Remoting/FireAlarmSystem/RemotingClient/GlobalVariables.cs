@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-
 namespace RemotingClient
 {
-    public static class GlobalVariables
+    class GlobalVariables
     {
         public static TcpChannel RegisterChannel()
         {

@@ -11,18 +11,17 @@ namespace FireAlarmService.Models
     {
         private int roomNo;
         private int floorNo;
-        private Boolean isAlarmActive;
         private int smokeLevel;
         private int co2Level;
-        private string user;
+        private Boolean isAlarmActive;
 
-        public RoomsModel(int roomNo, int floorNo, int smokeLevel, int co2Level,string user,Boolean isAlarmActive)
+
+        public RoomsModel(int roomNo, int floorNo, int smokeLevel, int co2Level, Boolean isAlarmActive)
         {
             this.roomNo = roomNo;
             this.floorNo = floorNo;
             this.smokeLevel = smokeLevel;
             this.co2Level = co2Level;
-            this.user = user;
             this.isAlarmActive = isAlarmActive;
         }
 
@@ -50,17 +49,12 @@ namespace FireAlarmService.Models
             set { co2Level = value; }
         }
 
-        public string User
-        {
-            get { return user ; }
-            set { user = value; }
-        }
-
         public Boolean IsAlarmActive
         {
             get { return isAlarmActive; }
             set { isAlarmActive = value; }
         }
+      
 
 
     }

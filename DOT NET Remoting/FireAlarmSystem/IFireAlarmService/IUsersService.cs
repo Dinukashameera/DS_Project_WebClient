@@ -1,5 +1,6 @@
 ﻿
 using FireAlarmService;
+using FireAlarmService.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,9 @@ namespace IFireAlarmService
 {
     public interface IUsersService
     {
-       int registerUser(String Name, String Email, String Mobile, String NIC, String Password);
-
-       IEnumerable<UserModel> viewUsers();
+       int assignRoomToUser(string username, string email, string mobile, string nic, string password, int roomNo);
+       IEnumerable<RoomsModel> assignedRooms();
+  
 
     }
 }
