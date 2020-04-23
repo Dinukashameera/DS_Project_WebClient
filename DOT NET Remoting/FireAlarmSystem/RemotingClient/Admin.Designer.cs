@@ -114,6 +114,7 @@
             this.btnRegisterUser.TabIndex = 52;
             this.btnRegisterUser.Text = "Register User";
             this.btnRegisterUser.UseVisualStyleBackColor = false;
+            this.btnRegisterUser.Click += new System.EventHandler(this.btnRegisterUser_Click);
             // 
             // label1
             // 
@@ -156,6 +157,7 @@
             this.btnLogin.TabIndex = 64;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label4
             // 

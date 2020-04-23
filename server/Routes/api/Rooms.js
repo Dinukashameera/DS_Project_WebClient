@@ -52,7 +52,7 @@ router.get("/", async (req, res) => {
     }
 
     res.send(room);
-    console.log(room);
+    //console.log(room);
   } catch (e) {
     console.log(e);
   }
@@ -139,7 +139,10 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
   try {
     //checking for the room existence
     //console.log(req);
-    console.log("DOT NET sending request is : ", req);
+
+    console.log("DOT NET sending request is : " ,req.body);
+
+
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     if (!room) return res.status(400).send("No Such Room exist");
 

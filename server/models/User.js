@@ -3,13 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   name:{
     type: String,
-    minlength: 5,
-    maxlength: 20
-  },
-  nic:{
-      type : String,
-      unique : true,
-      required : true
+    required:true
   },
   email:{
     type: String,
@@ -17,19 +11,17 @@ const userSchema = new mongoose.Schema({
   },
   password:{
     type: String,
-    minlength: 5,
-    maxlength: 1024
+    required:true
   },
   isAdmin:{
       type : Boolean,
-      default : false 
+      default : true 
   },
-  mobileNumber:{
+  mobile:{
     type : String,
     required : true
   }
 });
-
 
 const User = mongoose.model("User", userSchema);
 

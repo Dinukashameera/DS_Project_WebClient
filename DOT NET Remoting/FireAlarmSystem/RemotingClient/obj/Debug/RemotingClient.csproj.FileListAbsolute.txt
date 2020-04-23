@@ -11,3 +11,4 @@ E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET
 E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\RemotingClient\obj\Debug\RemotingClient.exe
 E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\RemotingClient\obj\Debug\RemotingClient.pdb
 E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\RemotingClient\obj\Debug\RemotingClient.AddRooms.resources
+E:\Developing Projectes\Visual Studio\.NET Remoting\DS_Project_WebClient\DOT NET Remoting\FireAlarmSystem\RemotingClient\obj\Debug\RemotingClient.Admin.resources

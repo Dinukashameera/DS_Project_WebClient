@@ -13,6 +13,9 @@ namespace IFireAlarmService
     {
        int assignRoomToUser(string username, string email, string mobile, string nic, string password, int roomNo);
        IEnumerable<RoomsModel> assignedRooms();
+       int registerAdmin(string name, string email, string mobile, string password);
+
+        int loginAdmin(string email, string password);
   
 
     }
