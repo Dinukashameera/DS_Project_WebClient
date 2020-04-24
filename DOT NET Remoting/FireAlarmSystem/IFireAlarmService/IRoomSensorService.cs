@@ -13,7 +13,9 @@ namespace IFireAlarmService
     {
         int addRoom(int roomNo, int floorNo, int smokeLevel, int co2Level);
         IEnumerable<RoomsModel> viewRooms();
-
+        IEnumerable<RoomsModel> searchRoom(int roomNo);
+        int resetRoom(int roomNo, int floorNo);
+        int deleteRoom(int roomNo);
 
         
     }

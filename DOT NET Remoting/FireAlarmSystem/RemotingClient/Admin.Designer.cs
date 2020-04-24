@@ -107,7 +107,8 @@
             // btnRegisterUser
             // 
             this.btnRegisterUser.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnRegisterUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterUser.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnRegisterUser.Location = new System.Drawing.Point(59, 401);
             this.btnRegisterUser.Name = "btnRegisterUser";
             this.btnRegisterUser.Size = new System.Drawing.Size(328, 50);
@@ -150,7 +151,8 @@
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogin.Location = new System.Drawing.Point(48, 335);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(328, 50);

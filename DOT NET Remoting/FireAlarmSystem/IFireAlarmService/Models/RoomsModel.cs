@@ -25,6 +25,14 @@ namespace FireAlarmService.Models
             this.isAlarmActive = isAlarmActive;
         }
 
+        public RoomsModel(int roomNo,int floorNo)
+        {
+            this.roomNo = roomNo;
+            this.floorNo = floorNo;
+        }
+
+    
+
         public int RoomNo
         {
             get { return roomNo; }
