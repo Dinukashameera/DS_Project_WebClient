@@ -7,16 +7,18 @@ using System.Threading.Tasks;
 namespace FireAlarmService.Models
 {
     [Serializable]
-    public class RoomsModel
+    public class Usermodel
     {
         private int roomNo;
         private int floorNo;
         private int smokeLevel;
         private int co2Level;
         private Boolean isAlarmActive;
+        private Boolean isCO2Active;
+        private Boolean isSmokeActive;
 
 
-        public RoomsModel(int roomNo, int floorNo, int smokeLevel, int co2Level, Boolean isAlarmActive)
+        public Usermodel(int roomNo, int floorNo, int smokeLevel, int co2Level, Boolean isAlarmActive)
         {
             this.roomNo = roomNo;
             this.floorNo = floorNo;
@@ -25,13 +27,12 @@ namespace FireAlarmService.Models
             this.isAlarmActive = isAlarmActive;
         }
 
-        public RoomsModel(int roomNo,int floorNo)
+        public Usermodel(int roomNo,int floorNo)
         {
             this.roomNo = roomNo;
             this.floorNo = floorNo;
         }
 
-    
 
         public int RoomNo
         {
@@ -61,6 +62,18 @@ namespace FireAlarmService.Models
         {
             get { return isAlarmActive; }
             set { isAlarmActive = value; }
+        }
+
+        public Boolean IsCO2Active
+        {
+            get { return isCO2Active; }
+            set { isCO2Active = value; }
+        }
+
+        public Boolean IsSmokeActive
+        {
+            get { return isSmokeActive; }
+            set { isSmokeActive = value; }
         }
       
 

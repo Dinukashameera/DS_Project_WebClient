@@ -21,11 +21,11 @@ namespace FireAlarmService
             return Convert.ToInt32(response.StatusCode);
         }
 
-        public IEnumerable<RoomsModel> assignedRooms()
+        public IEnumerable<Usermodel> assignedRooms()
         {
-            IEnumerable<RoomsModel> roomList;
+            IEnumerable<Usermodel> roomList;
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
-            roomList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
+            roomList = response.Content.ReadAsAsync<IEnumerable<Usermodel>>().Result;
             return roomList;
         }
 
@@ -38,12 +38,19 @@ namespace FireAlarmService
         }
 
 
-
         public int loginAdmin(string email, string password)
         {
             AdminModel adminModel = new AdminModel(email,password);
             HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("users/login",adminModel).Result;
             return Convert.ToInt32(response.StatusCode);
+        }
+
+        public IEnumerable<UserModel> alertSMS()
+        {
+            IEnumerable<UserModel> alert;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/alert/").Result;
+            alert = response.Content.ReadAsAsync<IEnumerable<UserModel>>().Result;
+            return alert;
         }
     }
 }

@@ -77,5 +77,17 @@ namespace RemotingClient
                 MessageBox.Show("User Does Not Exsist in the System");
             }
         }
+
+        private void txtPasswordLogin_TextChanged(object sender, EventArgs e)
+        {
+            txtPasswordLogin.PasswordChar = '*';
+           
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            txtPassword.PasswordChar = '*';
+           
+        }
     }
 }

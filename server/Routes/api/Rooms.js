@@ -179,16 +179,20 @@ router.put("/addSensor/:roomNo", async (req, res) => {
         res.status(404).json({ msg: "Not Found" });
       }
 
+      //chekcing the smoke level
       if (updatedRoom.smokeLevel <= 10 && updatedRoom.smokeLevel >= 5) {
         updatedRoom.isSmokeActive = true;
-        updatedRoom.save();
+      }else if(updatedRoom.smokeLevel >= 0 && updatedRoom.smokeLevel <= 4){
+        updatedRoom.isSmokeActive = false;
       }
-
+     
+      //chekcing the CO2 level
       if (updatedRoom.co2Level <= 10 && updatedRoom.co2Level >= 5) {
         updatedRoom.isCO2Active = true;
-        updatedRoom.save();
+      }else if(updatedRoom.co2Level >= 0 && updatedRoom.co2Level <= 4){
+        updatedRoom.isCO2Active = false;
       }
-
+      updatedRoom.save();
       res.sendStatus(200);
     }
     updateAlarms(room._id);

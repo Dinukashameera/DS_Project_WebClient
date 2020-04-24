@@ -12,11 +12,12 @@ namespace IFireAlarmService
     public interface IRoomSensorService
     {
         int addRoom(int roomNo, int floorNo, int smokeLevel, int co2Level);
-        IEnumerable<RoomsModel> viewRooms();
-        IEnumerable<RoomsModel> searchRoom(int roomNo);
+        IEnumerable<Usermodel> viewRooms();
+        IEnumerable<Usermodel> searchRoom(int roomNo);
         int resetRoom(int roomNo, int floorNo);
         int deleteRoom(int roomNo);
+        IEnumerable<Usermodel> alert();
 
-        
+
     }
 }

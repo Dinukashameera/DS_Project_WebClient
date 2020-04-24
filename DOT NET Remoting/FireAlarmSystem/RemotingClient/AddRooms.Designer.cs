@@ -110,19 +110,19 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(420, 264);
+            this.dataGridView1.Location = new System.Drawing.Point(455, 264);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(779, 448);
+            this.dataGridView1.Size = new System.Drawing.Size(749, 448);
             this.dataGridView1.TabIndex = 70;
             this.dataGridView1.UseWaitCursor = true;
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(420, 224);
+            this.txtSearch.Location = new System.Drawing.Point(455, 224);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(569, 34);
             this.txtSearch.TabIndex = 71;
@@ -131,10 +131,10 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(995, 224);
+            this.btnSearch.Location = new System.Drawing.Point(1030, 224);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSearch.Size = new System.Drawing.Size(204, 34);
+            this.btnSearch.Size = new System.Drawing.Size(174, 34);
             this.btnSearch.TabIndex = 72;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -144,7 +144,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(415, 192);
+            this.label1.Location = new System.Drawing.Point(450, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 29);
             this.label1.TabIndex = 73;
@@ -190,7 +190,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(703, 120);
+            this.label3.Location = new System.Drawing.Point(679, 120);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(263, 36);
             this.label3.TabIndex = 77;
@@ -216,6 +216,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsername);
             this.Name = "AddRooms";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddRooms";
             this.Load += new System.EventHandler(this.AddRooms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
