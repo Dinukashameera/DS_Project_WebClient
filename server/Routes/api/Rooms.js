@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Room } = require("../../models/Rooms");
 const nodemailer = require("nodemailer");
-const axios = require('axios');
+const axios = require("axios");
 
 //getting Rooms
 //getting Rooms
@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
   try {
     const room = await Room.find();
 
-    //sending email to the client
+    // //sending email to the client
     for (let index = 0; index < room.length; index++) {
       if (
         ((room[index].co2Level >= 5 && room[index].co2Level <= 10) ||
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
           to: room[index].user.email, // list of receivers
           subject: "Item Approved", // Subject line
           text: "Hello world?", // plain text body
-          html: `<h1>Hello</h1><br/>
+          html: `<h1>Hello ${room[index].user.name}</h1><br/>
                   <span><h3>Room No : ${room[index].roomNo}</h3></span>
                   <span>CO2 Level = ${room[index].co2Level}</span><br/>
                   <span>Smoke Level = ${room[index].smokeLevel}</span> `, // html body
@@ -41,9 +41,9 @@ router.get("/", async (req, res) => {
 
         transporter.sendMail(info, function (err, info) {
           if (err) {
-            //console.log(err);
+            console.log(err);
           } else {
-           // console.log(info);
+            console.log(info);
           }
         });
         room[index].isMailSent = true;
@@ -58,23 +58,23 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 router.put("/smsEmailStatus", async (req, res) => {
   try {
     const room = await Room.find();
-    console.lo("excuted The put method");
+    console.log("excuted The put method");
     setTimeout(async function () {
       try {
         for (let index = 0; index < room.length; index++) {
           if (
-            (room[index].co2Level >= 5 || room[index].co2Level <= 10) &&
-            room[index].isAlarmActive
+            ((room[index].co2Level >= 5 && room[index].co2Level <= 10) ||
+              (room[index].smokeLevel >= 5 && room[index].smokeLevel <= 10)) &&
+            room[index].isAlarmActive === true
           ) {
             room[index].isMailSent = true;
-           
+            await room[index].save();
           } else {
             room[index].isMailSent = false;
-           
+            await room[index].save();
           }
         }
       } catch (error) {}
@@ -103,7 +103,7 @@ router.post("/addroom", async (req, res) => {
       isSmokeSMSSent,
       isCO2SMSSent,
       isCO2MailSent,
-      isSmokeMailSent
+      isSmokeMailSent,
     } = req.body;
 
     //checking whether the user with same room address exist
@@ -124,7 +124,7 @@ router.post("/addroom", async (req, res) => {
       isSmokeSMSSent,
       isCO2SMSSent,
       isCO2MailSent,
-      isSmokeMailSent
+      isSmokeMailSent,
     });
     const result = await room.save();
     res.status(200).json(result);
@@ -139,7 +139,10 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
   try {
     //checking for the room existence
     //console.log(req);
+
     console.log("DOT NET sending request is : " ,req.body);
+
+
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     if (!room) return res.status(400).send("No Such Room exist");
 
@@ -152,7 +155,7 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
     room.isAlarmActive = true;
 
     await room.save();
-    res.json(room)
+    res.json(room);
   } catch (error) {
     res.send(error);
   }
@@ -162,7 +165,7 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
 router.put("/addSensor/:roomNo", async (req, res) => {
   try {
     //checking for the room existence
-   
+
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     console.log(room);
     if (!room) return res.status(400).send("No Such Room exist");
@@ -171,22 +174,21 @@ router.put("/addSensor/:roomNo", async (req, res) => {
     room.co2Level = req.body.co2Level;
 
     async function updateAlarms(id) {
-      
       const updatedRoom = await Room.findById(id);
-       if (!updatedRoom) {
-         res.status(404).json({"msg":"Not Found"})
-       }
+      if (!updatedRoom) {
+        res.status(404).json({ msg: "Not Found" });
+      }
 
-      if(updatedRoom.smokeLevel <= 10 && updatedRoom.smokeLevel >= 5){
+      if (updatedRoom.smokeLevel <= 10 && updatedRoom.smokeLevel >= 5) {
         updatedRoom.isSmokeActive = true;
-        updatedRoom.save()
+        updatedRoom.save();
       }
 
-      if(updatedRoom.co2Level <= 10 && updatedRoom.co2Level >= 5){
-        updatedRoom.isCO2Active= true;
-        updatedRoom.save()
+      if (updatedRoom.co2Level <= 10 && updatedRoom.co2Level >= 5) {
+        updatedRoom.isCO2Active = true;
+        updatedRoom.save();
       }
-      
+
       res.sendStatus(200);
     }
     updateAlarms(room._id);
@@ -207,69 +209,59 @@ router.get("/withUsers", async (req, res) => {
   }
 });
 
-
 //alert needed rooms
-router.get("/alert", async(req, res)=>{
+router.get("/alert", async (req, res) => {
   try {
     const room = await Room.find();
-  
-    for(let i = 0 ; i < room.length ; i++){
-      if(room[i].isCO2Active === true){
-        console.log('CO2 Active');
 
-        if(room[i].isCO2SMSSent === false){
-          
+    for (let i = 0; i < room.length; i++) {
+      if (room[i].isCO2Active === true) {
+        console.log("CO2 Active");
+
+        if (room[i].isCO2SMSSent === false) {
           axios({
-            method:'get',
-            url:`http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}-CO2 Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
-          })
-
+            method: "get",
+            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}-CO2 Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+          });
         }
 
-         async function updateSmsStatus(id){
-
+        async function updateSmsStatus(id) {
           const smsRoom = await Room.findById(id);
           if (!smsRoom) {
-            res.status(404).json({"msg":"Not Found"})
+            res.status(404).json({ msg: "Not Found" });
           }
 
           smsRoom.isCO2SMSSent = true;
           smsRoom.save();
-
-         }
-
-         updateSmsStatus(room[i]._id)
-
-      }
-      if(room[i].isSmokeActive === true){
-        console.log('Smoke Active');
-
-        if(room[i].isSmokeSMSSent === false){
-          axios({
-              method:'get',
-              url:`http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}- Smoke Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
-          })
         }
 
-        
-        async function updateSmsStatus(id){
+        updateSmsStatus(room[i]._id);
+      }
+      if (room[i].isSmokeActive === true) {
+        console.log("Smoke Active");
 
+        if (room[i].isSmokeSMSSent === false) {
+          axios({
+            method: "get",
+            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}- Smoke Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+          });
+        }
+
+        async function updateSmsStatus(id) {
           const smsRoom = await Room.findById(id);
           if (!smsRoom) {
-            res.status(404).json({"msg":"Not Found"})
+            res.status(404).json({ msg: "Not Found" });
           }
 
           smsRoom.isSmokeSMSSent = true;
           smsRoom.save();
-          
-         }
+        }
 
-         updateSmsStatus(room[i]._id)
+        updateSmsStatus(room[i]._id);
       }
     }
 
     res.send(room);
-
   } catch (e) {
     console.log(e);
   }
