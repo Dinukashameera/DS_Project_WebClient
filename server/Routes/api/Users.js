@@ -44,7 +44,7 @@ router.post("/adduser", async (req, res) => {
   });
 
 
-
+//admin register
   router.post("/register",(req,res)=>{
 
     console.log(req.body);
@@ -80,8 +80,8 @@ router.post("/adduser", async (req, res) => {
   })
 
 
-
-  router.post('/login',(req,res)=>{
+//admin login
+router.post('/login',(req,res)=>{
 
     console.log(req.body)
     User.findOne({
@@ -115,5 +115,10 @@ router.post("/adduser", async (req, res) => {
       }
     })
   })
+
+
+
+
+
 
 module.exports = router;

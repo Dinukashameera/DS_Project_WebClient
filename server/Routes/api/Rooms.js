@@ -275,6 +275,90 @@ router.get("/alert", async(req, res)=>{
   }
 });
 
+
+//delete a room
+router.delete("/deleteRoom/:roomNo",async(req,res)=>{
+  try {
+    console.log(req.body);
+    const room = await Room.findOne({roomNo: req.params.roomNo});
+    
+    if (!room) {
+      res.sendStatus(404)
+    }
+
+    await room.remove();
+    res.sendStatus(200);
+
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
+})
+
+
+//removing user from the room and rest the room
+router.put("/removeUser/:roomNo",async(req,res)=>{
+  try {
+    console.log(req.body);
+    let room = await Room.findOne({ roomNo: req.params.roomNo });
+    if (!room) return res.status(404).send("No Such Room exist");
+
+
+    room.user.nic = "null";
+    room.user.email = "null";
+    room.user.mobile = "null";
+    room.user.name = "null";
+    room.user.password = "null";
+
+    room.isAlarmActive = false;
+    room.smokeLevel = 0;
+    room.co2Level = 0;
+    room.isCO2Active = false;
+    room.isSmokeActive = false;
+    room.isCO2SMSSent = false;
+    room.isSmokeSMSSent = false;
+    room.isMailSent = false;
+
+    await room.save();
+    res.status(200).json({"msg":"Room Reset"})
+  } catch (error) {
+    res.status(500).json(error)
+  }
+})
+
+router.get('/getSingleRoom/:roomNo',async (req,res)=>{
+
+  console.log(req.params)
+  const room = await Room.find({roomNo: req.params.roomNo}).select({floorNo:1,roomNo:1});
+
+  if(!room){
+    res.status(404).json({"msg":"Room Not Found"})
+  }
+  res.send(room);
+
+});
+
+
+router.put('/resetRoom/:roomNo/:floorNo',async (req,res)=>{
+  console.log(req.params);
+
+  try{
+
+    const room = await Room.find({roomNo:req.params.roomNo})
+    if(!room) res.status(404).json({"msg":"Invalid Room Rumber"});
+
+    room.floorNo = req.params.floorNo;
+    room.roomNo = req.params.floorNo;
+    await room.save();
+
+  }catch(err){
+    res.status(500).json(err)
+  }
+  
+
+
+})
+
 router.get("/alertUserInformation", async (req, res) => {});
 
 module.exports = router;
