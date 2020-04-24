@@ -13,17 +13,17 @@ namespace FireAlarmService
     {
         public int addRoom(int roomNo, int floorNo, int smokeLevel, int co2Level)
         {
-            RoomsModel roomsModel = new Models.RoomsModel(roomNo,floorNo,smokeLevel,co2Level,false);
+            Usermodel roomsModel = new Models.Usermodel(roomNo,floorNo,smokeLevel,co2Level,false);
             HttpResponseMessage response = GlobalVariables.WebApiClient.PostAsJsonAsync("room/addroom", roomsModel).Result;
             return Convert.ToInt32(response.StatusCode);
         }
 
     
-        public IEnumerable<RoomsModel> viewRooms()
+        public IEnumerable<Usermodel> viewRooms()
         {
-            IEnumerable<RoomsModel> roomList;
+            IEnumerable<Usermodel> roomList;
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
-            roomList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
+            roomList = response.Content.ReadAsAsync<IEnumerable<Usermodel>>().Result;
             return roomList;
         }
 
@@ -33,21 +33,29 @@ namespace FireAlarmService
             return Convert.ToInt32(response.StatusCode);
         }
 
-        public IEnumerable<RoomsModel> searchRoom(int roomNo)
+        public IEnumerable<Usermodel> searchRoom(int roomNo)
         {
-            IEnumerable<RoomsModel> singleRoom;
+            IEnumerable<Usermodel> singleRoom;
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/getSingleRoom/" + roomNo).Result;
-            singleRoom = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
+            singleRoom = response.Content.ReadAsAsync<IEnumerable<Usermodel>>().Result;
             return singleRoom;
         }
 
         public int resetRoom(int roomNo, int floorNo)
         {
-            RoomsModel roomsModel = new RoomsModel(roomNo,floorNo);
+            Usermodel roomsModel = new Usermodel(roomNo,floorNo);
             HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/removeUser/" + roomNo, roomsModel).Result;
             return Convert.ToInt32(response.StatusCode);
         }
 
-       
+        public IEnumerable<Usermodel> alert()
+        {
+            IEnumerable<Usermodel> alert;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/alert/").Result;
+            alert = response.Content.ReadAsAsync<IEnumerable<Usermodel>>().Result;
+            return alert;
+        }
+
+
     }
 }

@@ -41,6 +41,9 @@ namespace RemotingClient
 
             client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
                 (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/resetRoom");
+
+            client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
+                (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/alert");
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -82,22 +85,23 @@ namespace RemotingClient
         private void FillData(object state)
         {
             string roomStatus;
-            IEnumerable<RoomsModel> roomList = client.viewRooms();
+            _ = client.alert();
+
+            IEnumerable<Usermodel> roomList = client.viewRooms();
             dataGridView1.Rows.Clear();
 
 
             foreach (var row in roomList.ToList())
             {
-                dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
-                if (row.IsAlarmActive == true)
+              dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+              if (row.IsAlarmActive == true)
               {
-                    roomStatus = "User In";
+                roomStatus = "User In";
               }
               else
               {
-                    roomStatus = "User Free";
+                roomStatus = "User Free";
               }
-  
                string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString() + " th Floor", row.Co2Level.ToString() + " ml", row.SmokeLevel.ToString() + " ml" , roomStatus };
                dataGridView1.Rows.Add(userDataArray);
 
@@ -124,7 +128,7 @@ namespace RemotingClient
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            IEnumerable<RoomsModel> singleRoom = client.searchRoom(Convert.ToInt32(txtSearch.Text.ToString()));
+            IEnumerable<Usermodel> singleRoom = client.searchRoom(Convert.ToInt32(txtSearch.Text.ToString()));
 
             if(singleRoom.ToList().Count == 1)
             {
@@ -147,6 +151,9 @@ namespace RemotingClient
             if(i == 200)
             {
                 MessageBox.Show("Room Deleted Successfully");
+                txtSearch.Text = "";
+                txtRoomNo.Text = "";
+                txtFloorNo.Text = "";
             }
             else if(i == 404)
             {
@@ -164,6 +171,11 @@ namespace RemotingClient
             if(i == 200)
             {
                 MessageBox.Show("Room Reset is Successfuly Done");
+                txtSearch.Text = "";
+                txtRoomNo.Text = "";
+                txtFloorNo.Text = "";
+
+
             }else if(i == 404)
             {
                 MessageBox.Show("Invalid Room Number!!!");

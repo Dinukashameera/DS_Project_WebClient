@@ -14,19 +14,20 @@ namespace TestDataApp
     {
         static void Main(string[] args)
         {
-            IEnumerable<RoomsModel> userList;
-            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/getSingleRoom/" + 24).Result;
-            userList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
+            IEnumerable<Usermodel> userList;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
+            userList = response.Content.ReadAsAsync<IEnumerable<Usermodel>>().Result;
           //  var sb = new StringBuilder();
 
 
 
             foreach (var row in userList)
             {
-                //UserModel userModel = new UserModel();
-                Console.WriteLine("Room no: " +row.RoomNo.ToString()+ "==== Floor No : " +row.FloorNo.ToString() );
-                Console.ReadLine();
-                // Console.WriteLine(row.FloorNo.ToString());
+                
+                Console.WriteLine("Room no: " +row.RoomNo.ToString()+ "==== Floor No : " +row.FloorNo.ToString());
+                Console.WriteLine("C02 Alarm: " + row.IsCO2Active.ToString() + "==== Smoke Alarm : " + row.IsSmokeActive.ToString());
+                Console.WriteLine("CO2 Level: " + row.Co2Level.ToString() + "==== Smoke : " + row.SmokeLevel.ToString());
+
 
             }
             //Console.WriteLine(Convert.ToInt32(response.StatusCode));

@@ -12,11 +12,11 @@ namespace IFireAlarmService
     public interface IUsersService
     {
        int assignRoomToUser(string username, string email, string mobile, string nic, string password, int roomNo);
-       IEnumerable<RoomsModel> assignedRooms();
+       IEnumerable<Usermodel> assignedRooms();
        int registerAdmin(string name, string email, string mobile, string password);
 
-        int loginAdmin(string email, string password);
-  
+       int loginAdmin(string email, string password);
 
+        IEnumerable<UserModel> alertSMS();
     }
 }
