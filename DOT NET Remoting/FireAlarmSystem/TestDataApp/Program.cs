@@ -15,7 +15,7 @@ namespace TestDataApp
         static void Main(string[] args)
         {
             IEnumerable<RoomsModel> userList;
-            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/").Result;
+            HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("room/getSingleRoom/" + 24).Result;
             userList = response.Content.ReadAsAsync<IEnumerable<RoomsModel>>().Result;
           //  var sb = new StringBuilder();
 
@@ -24,16 +24,18 @@ namespace TestDataApp
             foreach (var row in userList)
             {
                 //UserModel userModel = new UserModel();
-                Console.WriteLine(row.RoomNo.ToString());
-                Console.WriteLine(row.FloorNo.ToString());
-                Console.WriteLine(row.Co2Level.ToString());
-                Console.WriteLine(row.SmokeLevel.ToString());
-                Console.WriteLine(row.IsAlarmActive.ToString());
+                Console.WriteLine("Room no: " +row.RoomNo.ToString()+ "==== Floor No : " +row.FloorNo.ToString() );
+                Console.ReadLine();
+                // Console.WriteLine(row.FloorNo.ToString());
+
             }
-            Console.WriteLine(Convert.ToInt32(response.StatusCode));
-            Console.WriteLine(userList.ToList().Count);
-            Console.WriteLine(userList);
+            //Console.WriteLine(Convert.ToInt32(response.StatusCode));
+           // Console.WriteLine(userList.ToList().Count);
+           // Console.WriteLine(userList);
             Console.ReadLine();
+
+
+     
         }
 
         internal static void Run()

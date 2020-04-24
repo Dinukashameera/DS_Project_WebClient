@@ -27,9 +27,12 @@ namespace RemotingServer
             
             
 
-
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "addRoom", WellKnownObjectMode.Singleton);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "viewRooms", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "searchRoom", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "deleteRoom", WellKnownObjectMode.Singleton);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(RoomSensorService), "resetRoom", WellKnownObjectMode.Singleton);
+
 
 
             Console.WriteLine("Remoting server started @ " + DateTime.Now);

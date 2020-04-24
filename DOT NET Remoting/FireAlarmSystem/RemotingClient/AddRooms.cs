@@ -29,6 +29,18 @@ namespace RemotingClient
 
             client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
                 (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/viewRooms");
+
+
+            client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
+                (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/searchRoom");
+
+
+            client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
+                (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/deleteRoom");
+
+
+            client = (IFireAlarmService.IRoomSensorService)Activator.GetObject
+                (typeof(IFireAlarmService.IRoomSensorService), "tcp://localhost:8080/resetRoom");
         }
 
         private void btnadd_Click(object sender, EventArgs e)
@@ -108,6 +120,58 @@ namespace RemotingClient
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            IEnumerable<RoomsModel> singleRoom = client.searchRoom(Convert.ToInt32(txtSearch.Text.ToString()));
+
+            if(singleRoom.ToList().Count == 1)
+            {
+                foreach (var row in singleRoom.ToList())
+                {
+                    txtRoomNo.Text = row.RoomNo.ToString();
+                    txtFloorNo.Text = row.FloorNo.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Room Not Found");
+            }
+           
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int i = client.deleteRoom(Convert.ToInt32(txtRoomNo.Text.ToString()));
+            if(i == 200)
+            {
+                MessageBox.Show("Room Deleted Successfully");
+            }
+            else if(i == 404)
+            {
+                MessageBox.Show("Room Not Found");
+            }
+            else
+            {
+                MessageBox.Show("Oops!!! Something went Wrong");
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            int i = client.resetRoom(Convert.ToInt32(txtRoomNo.Text.ToString()), Convert.ToInt32(txtFloorNo.Text.ToString()));
+            if(i == 200)
+            {
+                MessageBox.Show("Room Reset is Successfuly Done");
+            }else if(i == 404)
+            {
+                MessageBox.Show("Invalid Room Number!!!");
+            }
+            else
+            {
+                MessageBox.Show("Oops!!! Something Went Wrong!!!");
+            }
         }
     }
 }

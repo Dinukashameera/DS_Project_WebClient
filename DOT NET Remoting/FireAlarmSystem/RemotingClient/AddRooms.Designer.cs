@@ -38,7 +38,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -83,24 +83,27 @@
             // 
             // btnadd
             // 
+            this.btnadd.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnadd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnadd.Location = new System.Drawing.Point(102, 356);
+            this.btnadd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnadd.Location = new System.Drawing.Point(102, 342);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(251, 44);
             this.btnadd.TabIndex = 61;
             this.btnadd.Text = "ADD";
-            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.UseVisualStyleBackColor = false;
             this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // btnUserForm
             // 
+            this.btnUserForm.BackColor = System.Drawing.SystemColors.MenuBar;
             this.btnUserForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserForm.Location = new System.Drawing.Point(101, 26);
             this.btnUserForm.Name = "btnUserForm";
-            this.btnUserForm.Size = new System.Drawing.Size(1056, 52);
+            this.btnUserForm.Size = new System.Drawing.Size(1098, 52);
             this.btnUserForm.TabIndex = 69;
             this.btnUserForm.Text = "Click Here to Users Form";
-            this.btnUserForm.UseVisualStyleBackColor = true;
+            this.btnUserForm.UseVisualStyleBackColor = false;
             this.btnUserForm.Click += new System.EventHandler(this.btnUserForm_Click);
             // 
             // dataGridView1
@@ -126,50 +129,57 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(995, 224);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnSearch.Size = new System.Drawing.Size(162, 34);
+            this.btnSearch.Size = new System.Drawing.Size(204, 34);
             this.btnSearch.TabIndex = 72;
             this.btnSearch.Text = "SEARCH";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(424, 192);
+            this.label1.Location = new System.Drawing.Point(415, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 29);
             this.label1.TabIndex = 73;
             this.label1.Text = "Search from Room Number";
             // 
-            // btnUpdate
+            // btnReset
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(102, 406);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(251, 44);
-            this.btnUpdate.TabIndex = 74;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnReset.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(102, 408);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(251, 44);
+            this.btnReset.TabIndex = 74;
+            this.btnReset.Text = "RESET ROOM";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.Firebrick;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(102, 456);
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnDelete.Location = new System.Drawing.Point(101, 480);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(251, 44);
             this.btnDelete.TabIndex = 75;
             this.btnDelete.Text = "DELETE";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(95, 120);
+            this.label6.Location = new System.Drawing.Point(107, 120);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(237, 36);
             this.label6.TabIndex = 76;
@@ -190,11 +200,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 867);
+            this.ClientSize = new System.Drawing.Size(1310, 766);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
@@ -226,7 +236,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
