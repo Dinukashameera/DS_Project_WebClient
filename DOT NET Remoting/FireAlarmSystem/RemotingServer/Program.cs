@@ -16,8 +16,8 @@ namespace RemotingServer
         {
             TcpChannel channel = new TcpChannel(8080);
 
-            FireAlarmService.UserServices fireRomtingService = new FireAlarmService.UserServices();
-            RoomSensorService fireSenorService = new RoomSensorService();
+
+
             ChannelServices.RegisterChannel(channel);
 
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(UserServices), "assignRoomToUser", WellKnownObjectMode.Singleton);

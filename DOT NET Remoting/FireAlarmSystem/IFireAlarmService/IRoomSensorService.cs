@@ -18,6 +18,5 @@ namespace IFireAlarmService
         int deleteRoom(int roomNo);
         IEnumerable<Usermodel> alert();
 
-
     }
 }

@@ -58,7 +58,7 @@ namespace RemotingClient
             }
             else
             {
-                MessageBox.Show("Oops!!! Something went Wrong...");
+                MessageBox.Show("Room Already Exists...");
             }
         }
 

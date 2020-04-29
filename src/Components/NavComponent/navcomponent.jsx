@@ -4,7 +4,7 @@ export default function navcomponent() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="#">
-          COMPANY NAME 
+          Fire Alarm System 
       </a>
       <button
         className="navbar-toggler"
@@ -21,12 +21,12 @@ export default function navcomponent() {
         <ul className="navbar-nav">
           <li className="nav-item active">
             <Link to ='/' className="nav-link" href="#">
-              Home <span className="sr-only">(current)</span>
+              Admin <span className="sr-only">(current)</span>
             </Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
-              Pricing
+              Client
             </a>
           </li>
         </ul>
