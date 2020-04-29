@@ -34,6 +34,9 @@ namespace RemotingClient
 
             client = (IFireAlarmService.IUsersService)Activator.GetObject
                     (typeof(IFireAlarmService.IUsersService), "tcp://localhost:8080/assignedRooms");
+
+            client = (IFireAlarmService.IUsersService)Activator.GetObject
+                    (typeof(IFireAlarmService.IUsersService), "tcp://localhost:8080/alertSMS");
         }
 
         private void btnAssignUser_Click(object sender, EventArgs e)
@@ -65,16 +68,27 @@ namespace RemotingClient
 
         private void FillData(object state)
         {
-            IEnumerable<RoomsModel> roomList = client.assignedRooms();
+            _ = client.alertSMS();
+            string roomStatus, co2AlarmStatus, smokeAlarmStatus;
+            
+
+            IEnumerable<Usermodel> roomList = client.assignedRooms();
             dataGridView1.Rows.Clear();
             foreach (var row in roomList.ToList())
             {
+                if (row.IsAlarmActive == true) roomStatus = "User In";
+                else roomStatus = "User Free";
 
-                if (row.IsAlarmActive == true)
-                {
-                    string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString()+ " th Floor", row.Co2Level.ToString()+ " ml", row.SmokeLevel.ToString()+ " ml" };
-                    dataGridView1.Rows.Add(userDataArray);
-                }
+                if (row.IsCO2Active == true) co2AlarmStatus = "ON";
+                else co2AlarmStatus = "OFF";
+
+                if (row.IsSmokeActive == true) smokeAlarmStatus = "ON";
+                else smokeAlarmStatus = "OFF";
+
+
+                string[] userDataArray = { row.RoomNo.ToString(), row.FloorNo.ToString()+ " th Floor", row.Co2Level.ToString()+ " ml", row.SmokeLevel.ToString()+ " ml",co2AlarmStatus,smokeAlarmStatus,roomStatus };
+                dataGridView1.Rows.Add(userDataArray);
+                
 
             }
         }
@@ -94,19 +108,23 @@ namespace RemotingClient
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            dataGridView1.ColumnCount = 4;
+            dataGridView1.ColumnCount = 7;
             dataGridView1.Columns[0].Name = "RoomNo";
             dataGridView1.Columns[1].Name = "FloorNo";
             dataGridView1.Columns[2].Name = "CO2 Level";
             dataGridView1.Columns[3].Name = "Smoke Level";
+            dataGridView1.Columns[4].Name = "CO2 Sensor";
+            dataGridView1.Columns[5].Name = "Smoke Sensor";
+            dataGridView1.Columns[6].Name = "Room Status";
 
             Run();
 
         }
 
-    
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-     
+        }
     }
 
 }

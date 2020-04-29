@@ -4,6 +4,8 @@ const { Room } = require("../../models/Rooms");
 const nodemailer = require("nodemailer");
 const axios = require("axios");
 
+const fs = require('fs');
+const path = require('path');
 //getting Rooms
 //getting Rooms
 router.get("/", async (req, res) => {
@@ -127,6 +129,20 @@ router.post("/addroom", async (req, res) => {
       isSmokeMailSent,
     });
     const result = await room.save();
+
+
+    //create folder
+    fs.mkdir(path.join(`${__dirname}/res`, `/Room${roomNo}`),{},err =>{
+      if(err) throw err;
+      console.log('Folder Createted...');
+
+      //Create and write to file
+          fs.writeFile(path.join(__dirname,`/res/Room${roomNo}`,'info.txt'),`Floor No : ${req.body.floorNo}`,err =>{
+             if(err) throw err;
+              console.log('File written to...');
+          });
+    });
+
     res.status(200).json(result);
   } catch (e) {
     res.send(e);
@@ -146,6 +162,14 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
     let room = await Room.findOne({ roomNo: req.params.roomNo });
     if (!room) return res.status(400).send("No Such Room exist");
 
+    //Append the file
+    fs.appendFile(path.join(__dirname,`/res/Room${req.params.roomNo}`,'info.txt'),
+    `\nUsername : ${req.body.name}\nNIC : ${req.body.nic}\nMobile:${req.body.mobile}\nEmail:${req.body.email}\nAdded date : ${Date(Date.now()).toString()}\n\n\nSensor Data\n\n`
+    ,err =>{
+      if(err) throw err;
+      console.log('File Append to...');
+    });
+
     room.user.nic = req.body.nic;
     room.user.email = req.body.email;
     room.user.mobile = req.body.mobile;
@@ -155,6 +179,9 @@ router.put("/addCustomer/:roomNo", async (req, res) => {
     room.isAlarmActive = true;
 
     await room.save();
+
+    
+
     res.json(room);
   } catch (error) {
     res.send(error);
@@ -172,6 +199,14 @@ router.put("/addSensor/:roomNo", async (req, res) => {
 
     room.smokeLevel = req.body.smokeLevel;
     room.co2Level = req.body.co2Level;
+
+      //Append the file
+      fs.appendFile(path.join(__dirname,`/res/Room${req.params.roomNo}`,'info.txt'),
+      `Smoke Level : ${req.body.smokeLevel}\t\tCO2 Level : ${req.body.co2Level}\t\tTime : ${Date(Date.now()).toString()}\n`
+      ,err =>{
+        if(err) throw err;
+        console.log('File Append to...');
+      });
 
     async function updateAlarms(id) {
       const updatedRoom = await Room.findById(id);

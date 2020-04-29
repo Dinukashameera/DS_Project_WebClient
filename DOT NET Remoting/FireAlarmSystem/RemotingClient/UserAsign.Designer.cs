@@ -145,7 +145,7 @@
             this.btnreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnreset.Location = new System.Drawing.Point(69, 36);
             this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(1005, 51);
+            this.btnreset.Size = new System.Drawing.Size(1431, 51);
             this.btnreset.TabIndex = 41;
             this.btnreset.Text = "Click Here to Rooms Form";
             this.btnreset.UseVisualStyleBackColor = false;
@@ -164,22 +164,23 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(469, 222);
+            this.dataGridView1.Location = new System.Drawing.Point(495, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(605, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(1005, 416);
             this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(649, 125);
+            this.label1.Location = new System.Drawing.Point(907, 125);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 36);
+            this.label1.Size = new System.Drawing.Size(210, 36);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Active Rooms";
+            this.label1.Text = "List of Rooms";
             // 
             // label7
             // 
@@ -195,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 697);
+            this.ClientSize = new System.Drawing.Size(1606, 697);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -212,6 +213,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtUsername);
             this.Name = "UserForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Assign Form";
             this.Load += new System.EventHandler(this.UserForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

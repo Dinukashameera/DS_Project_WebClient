@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FireAlarmService\FireAlarmService.csproj">
-      <Project>{6badb451-f135-43d4-bdbd-ee3593d6dc5e}</Project>
+      <Project>{6BADB451-F135-43D4-BDBD-EE3593D6DC5E}</Project>
       <Name>FireAlarmService</Name>
     </ProjectReference>
     <ProjectReference Include="..\IFireAlarmService\IFireAlarmService.csproj">
