@@ -77,7 +77,7 @@ namespace RemotingClient
         internal void Run()
         {
             var autoEvent = new AutoResetEvent(false);
-            int seconds = 10 * 1000;
+            int seconds = 15 * 1000;
             var timer = new System.Threading.Timer(FillData, autoEvent, 1000, seconds);
         }
 
