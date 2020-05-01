@@ -36,7 +36,7 @@ namespace DummySensor
 
                 SensorDataModel sensorDataModel = new SensorDataModel(roomNO,smoke,co2);
                 HttpResponseMessage response = GlobalVariables.WebApiClient.PutAsJsonAsync("room/addSensor/"+sensorDataModel.RoomNo,sensorDataModel).Result;
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
      
             }
 

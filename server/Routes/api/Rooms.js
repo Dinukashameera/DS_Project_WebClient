@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
         let info = await transporter.sendMail({
           from: "dinuka@gmail.com", // sender address
           to: room[index].user.email, // list of receivers
-          subject: "Item Approved", // Subject line
+          subject: "Room Detail", // Subject line
           text: "Hello world?", // plain text body
           html: `<h1>Hello ${room[index].user.name}</h1><br/>
                   <span><h3>Room No : ${room[index].roomNo}</h3></span>
