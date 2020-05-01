@@ -1,0 +1,58 @@
+IT18028010 D.C Kalubowila
+IT18006544 H.D.D.S Perera
+
+NOTE :- PROPER INTERNET CONNECTION IS COMPLUSORY
+************** Method of installing the system *****************
+
+
+NOTE:- 
+	Before running the web application make sure to copy paste the
+	dist and plugin folders inside to the public folder (which is inside the DS_Project_WebClient folder)
+	dist and plugin folder can be found from this Link :-"https://drive.google.com/drive/folders/1gTPBel2IGKdUs0fA5a0Mnp9L95M8eakn"
+
+Web Client
+	
+	Step 1 :- Open the project usimg VS code
+	Step 2 :- Open the integrated terminal
+	Step 3 :- Go to the DS_Project_WebClient directory
+	Step 4 :- Then run the command "npm i" to install the libraries
+	Step 5 :- Then run the command "npm start" to run the web application (frontend)
+
+REST API 
+
+	Step 1 :- Open another terminal.
+	Step 2 :- Go to the server directory using the command cd server (from the root directory).
+	Step 3 :- Then run the command "npm i" to install the libraries.
+	Step 4 :- The run the command "nodemon" to start the server.
+	Step 5 :- If every thing works fine the following message will be seen in the console 
+		  "Listening to PORT 5000"		
+		  "connected to mongo DB"
+
+.NET Remoting
+
+	Phase 1 : if you want to execute already build project.(.exe file)
+		Step 1 :- access to the location "DOT NET Remoting\FireAlarmSystem"
+		Step 2 :- then go the RemotinSensor/bin/Debug.
+		Step 3 :- open the .exe  file called RemotingServer.
+		Step 4 :- then go back and browse to the RemotinClient/bin/Debug.
+		Step 5 :- open the .exe  file called RemotingServer.
+		Step 6 :- go ahead with UI
+
+	Phase 2 : if you want to build project again
+		Step 1 :- access to the location "DOT NET Remoting\FireAlarmSystem"
+		Step 2 :- Then open the .sln file called "FireAlarmSystem".(it will opend from Visual Studio)
+				*Visual Studio 2017/2019 Community Edition or upper
+				*This project include some Async operation.Require C# version is 7.2 or upper.
+				*Additional .dll file is needed to the from external sources for the asynchronus tasks.(It will already included as references.)
+				*But in case if that .dll file is not avalibale search via internet "System.Net.Http.Formatting".
+				*Insert the above .dll file into both Dummy Sensor and FireAlarmService app (add it as a refference to both projects)
+				*Then build the entire project using "Ctrl + Shift + B".
+				*If error free follow the steps from 1st phase
+	
+
+Dummy Sensor
+	Step 1 :- access to the location "DOT NET Remoting\DummySensor"
+	Step 2 :- then go the DummySensor/bin/Debug.
+	Step 3 :- open the .exe  file called DummySensor.
+	Step 4 :- go ahead with UI
+			
