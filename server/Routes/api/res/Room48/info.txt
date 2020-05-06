@@ -1,0 +1,20 @@
+Floor No : 4
+Username : Dinuwan CK
+NIC : 2343565V
+Mobile:712184518
+Email:dinuwan@gmail.com
+Added date : Thu Apr 30 2020 20:13:09 GMT+0530 (India Standard Time)
+
+
+Sensor Data
+
+Smoke Level : 1		CO2 Level : 9		Time : Thu Apr 30 2020 20:16:45 GMT+0530 (India Standard Time)
+Smoke Level : 2		CO2 Level : 8		Time : Thu Apr 30 2020 20:16:55 GMT+0530 (India Standard Time)
+Smoke Level : 3		CO2 Level : 7		Time : Thu Apr 30 2020 20:17:05 GMT+0530 (India Standard Time)
+Smoke Level : 4		CO2 Level : 6		Time : Thu Apr 30 2020 20:17:15 GMT+0530 (India Standard Time)
+Smoke Level : 5		CO2 Level : 5		Time : Thu Apr 30 2020 20:17:25 GMT+0530 (India Standard Time)
+Smoke Level : 6		CO2 Level : 4		Time : Thu Apr 30 2020 20:17:35 GMT+0530 (India Standard Time)
+Smoke Level : 7		CO2 Level : 3		Time : Thu Apr 30 2020 20:17:45 GMT+0530 (India Standard Time)
+Smoke Level : 8		CO2 Level : 2		Time : Thu Apr 30 2020 20:17:55 GMT+0530 (India Standard Time)
+Smoke Level : 9		CO2 Level : 1		Time : Thu Apr 30 2020 20:18:05 GMT+0530 (India Standard Time)
+Smoke Level : 10		CO2 Level : 0		Time : Thu Apr 30 2020 20:18:15 GMT+0530 (India Standard Time)
