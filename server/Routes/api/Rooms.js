@@ -260,7 +260,7 @@ router.get("/alert", async (req, res) => {
         if (room[i].isCO2SMSSent === false) {
           axios({
             method: "get",
-            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}-CO2 Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}-CO2 Alarm is Active&to=94${room[i].user.mobile}&usr=0776061689&pw=1111`,
           });
         }
 
@@ -282,7 +282,7 @@ router.get("/alert", async (req, res) => {
         if (room[i].isSmokeSMSSent === false) {
           axios({
             method: "get",
-            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}- Smoke Alarm is Active&to=94${room[i].user.mobile}&usr=0766061689&pw=4873`,
+            url: `http://api.liyanagegroup.com/sms_api.php?sms=Room ${room[i].roomNo}- Smoke Alarm is Active&to=94${room[i].user.mobile}&usr=0776061689&pw=1111`,
           });
         }
 
